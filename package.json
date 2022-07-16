@@ -1,0 +1,23 @@
+{
+  "name": "priornitify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DianaVarvadiuk/PriorNitify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DianaVarvadiuk/PriorNitify/issues"
+  },
+  "homepage": "https://github.com/DianaVarvadiuk/PriorNitify#readme",
+  "devDependencies": {
+    "cypress": "^10.3.0"
+  }
+}
