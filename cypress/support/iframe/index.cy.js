@@ -1,6 +1,7 @@
- export default Cypress.Commands.add('getIframeBody',(iframe) => {
-    return cy
-    .get('.skiptranslate').last()
-    // .its('0.document').should('not.be.empty')
-     .then(cy.wrap)
-  })
+Cypress.Commands.add('getIframeBody',(iframeLocator) => {
+   return cy
+   .get(iframeLocator)
+   .its('0.contentDocument.body').should('not.be.empty')
+    .then(cy.wrap)
+ })
+ 
