@@ -1,14 +1,9 @@
 import {SignInPage} from './page-object/SignInPage.cy.js'
-//import {getIframeBody} from '../support/iframe/index.cy'
 describe('Sign in page and check inputs', () => {
   it('Should sign in via english language', () => {
     //visit sign in page
     const signin = new SignInPage()
     signin.visitSignInPage()
-    //const getIframe = new getIframeBody()  
-   
-     signin.getLanguage().click()
-    cy.getIframeBody().last().find('.goog-te-menu2  table td:nth-child(1) span:nth-child(2).text').last().click()
     //signin.getLanguageUA().click()
     cy.wait(2000)
     //signin.getLanguageUA().select('англійська')
@@ -52,6 +47,13 @@ describe('Sign in page and check inputs', () => {
     // signin.getLanguage().click()
     //  cy.getIframeBody().find('div[id^=":0.targetLanguage"]').click()
     // signin.getLanguageUA().select(2)
+    signin.getLanguage().click()
+    cy.getIframeBody('.goog-te-menu-frame.skiptranslate')
+      .last()
+      .find('.goog-te-menu2 table tbody span:nth-child(2).text')
+      .contains('українська')
+      .click()
+   
     cy.wait(2000)
     //signin.getLanguageUA().select('українська')
     //write invalid email

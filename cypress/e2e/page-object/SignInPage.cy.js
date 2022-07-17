@@ -1,6 +1,6 @@
 export class SignInPage {
     visitSignInPage(){
-        cy.visit('https://dev-login.priornotify.com/register')
+        cy.visit('/register')
     }
     getLanguage(){
        return cy.get('div[id^=":0.targetLanguage"]')
