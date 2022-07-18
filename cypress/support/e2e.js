@@ -15,6 +15,6 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import './iframe/index.cy'
+import './iframe/index.cy.ts'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
