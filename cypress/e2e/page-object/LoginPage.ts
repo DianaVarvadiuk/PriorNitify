@@ -1,6 +1,6 @@
  export class LoginPage{
   visit(){
-    return cy.visit('https://dev-login.priornotify.com/login')
+    return cy.visit('/login')
   }
 
   getLanguage(){
@@ -17,7 +17,7 @@
     const field = cy.get('#exampleInputPassword1')
     field.clear()
     field.type(value)
-    
+
     return this
   }
   getCheckbox() {
