@@ -1,7 +1,7 @@
 import {LoginPage} from './page-object/LoginPage'
 import HomePage from './page-object/HomePage'
-const email = Cypress.env('email')
-const password = Cypress.env('password')
+// const email = Cypress.env('email')
+// const password = Cypress.env('password')
 describe('Log in on page and check inputs', () => {
 
   it('Should log in the page via  english language', () => {
@@ -24,16 +24,10 @@ describe('Log in on page and check inputs', () => {
     //write invalid password
    logIn
     .getPassword('12344567')
-    .getCheckbox().click()
+    //.getCheckbox().click()
    logIn.getLoginBtn().should('be.disabled')
-   //write valid email
-   logIn
-    .getEmail(email)
-    //write valid password
-    .getPassword(password)
-    .getCheckbox().click()
-   //click login
-   logIn.getLoginBtn().click()
+   //sign in valid
+  cy.login()
    //check base url
    cy.url().should('include','https://dev-login.priornotify.com/')
   })
@@ -69,14 +63,8 @@ describe('Log in on page and check inputs', () => {
       .getPassword('12344567')
       .getLoginBtn()
       .should('be.disabled')
-    //write valid email
-    logIn
-    .getEmail(email)
-    //write valid password
-      .getPassword(password)
-    //click login
-      .getLoginBtn()
-      .click()
+    //sign in valid
+    cy.login()
     //check base url
     cy.url().should('include','https://dev-login.priornotify.com/')
    })
