@@ -45,7 +45,7 @@ describe('Sign in page and check inputs', () => {
       .should('be.disabled')
      //write valid email
      signup
-     .getEmail('dianavarvadiuk@gmail.com')
+     .getEmail('varvadiukdidi@gmail.com')
      .getPassword('Tt12345678')
      .getConfirmPassword('Tt12345678')
      .getCheckbox()
@@ -54,6 +54,7 @@ describe('Sign in page and check inputs', () => {
       .getCreateAccountBtn()
       .click()
       .should('be.enabled')
+      cy.wait(2000)
   })
   it('Should sign in via ukrainian language', () => {
     const home = new HomePage();
