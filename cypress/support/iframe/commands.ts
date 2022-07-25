@@ -1,6 +1,6 @@
 declare namespace Cypress {
-    interface Chainable<Subject = any> {
-      getIframeBody(selector: string): Chainable<Subject>;
-      login:()=> Chainable<Subject>;
-    }
+  interface Chainable<Subject = any> {
+    getIframeBody(selector: string): Chainable<Subject>;
+    login: () => Chainable<Subject>;
   }
+}

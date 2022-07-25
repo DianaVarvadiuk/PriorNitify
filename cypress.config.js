@@ -5,12 +5,11 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-      "baseUrl": "https://dev-login.priornotify.com/",
-    
-    "env": {
-      "email": "varvadiukdidi@gmail.com",
-      "password": "Tt12345678"
-    }
+    baseUrl: "https://dev-login.priornotify.com/",
+
+    env: {
+      email: "varvadiukdidi@gmail.com",
+      password: "Tt12345678",
+    },
   },
 });
-
