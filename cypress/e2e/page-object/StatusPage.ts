@@ -3,7 +3,7 @@ export class StatusPage{
         return cy.get('.swal2-actions button:nth-child(1)')
     }
     visit(){
-        cy.visit('https://dev-login.priornotify.com/status')
+        cy.visit('/status')
     }
     getCountry(){
         return cy.get('.ng-value-container')

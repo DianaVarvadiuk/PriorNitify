@@ -1,7 +1,7 @@
 
 export class SubscribePage{
     visit(){
-        cy.visit('https://dev-login.priornotify.com/activate?key=2c4e986449b4aaed03105f9c4c2f01626471d26f')
+        cy.visit('/activate?key=2c4e986449b4aaed03105f9c4c2f01626471d26f')
     }
    getPrice(){
     return cy.get('.planItem-top .value')

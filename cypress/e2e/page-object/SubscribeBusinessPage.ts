@@ -4,7 +4,6 @@ export class SubscribeBusinessPage{
          return cy.get('.producer .text-center')
     }
 
-    //userTypes-submit[]
     getProducerSubmit(){
         return cy.get('.producer .userTypes-submit')
     }

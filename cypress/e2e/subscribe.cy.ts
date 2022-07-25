@@ -6,7 +6,6 @@ describe('Subcribe page', () => {
        cy.clearLocalStorage('loggedInUserData')
        cy.clearLocalStorage('token')
        loadInterceptsDefaults()
-     
     })
 
     it('Should check data subscribe page and subscribe business page ', () => {
@@ -95,5 +94,6 @@ describe('Subcribe page', () => {
             .getProducerSubmit()
             .click()
         cy.wait(2000)
+        cy.url().should('include','/status')
     })
 })

@@ -16,7 +16,6 @@ describe('Log in on page and check inputs', () => {
     //write invalid password
    logIn.getPassword('1')
    logIn.getCheckbox().click()
-  // cy.contains('This field is required')
    logIn.getLoginBtn().should('be.disabled')
    //write invalid email
    logIn.getEmail('dianagmail.com')
@@ -28,8 +27,6 @@ describe('Log in on page and check inputs', () => {
    logIn.getLoginBtn().should('be.disabled')
    //sign in valid
   cy.login()
-   //check base url
-   cy.url().should('include','https://dev-login.priornotify.com/')
   })
   it('Should log in the page via  ukrainian language', () => {
     const home = new HomePage();
