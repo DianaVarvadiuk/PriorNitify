@@ -1,4 +1,4 @@
-export class SignInPage {
+export class SignUpPage {
     visit(){
         cy.visit('/register')
     }
