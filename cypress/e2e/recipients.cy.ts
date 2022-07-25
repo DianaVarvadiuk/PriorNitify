@@ -7,6 +7,7 @@ describe('Create  new recipient', () => {
         cy.clearLocalStorage('token')
      })
   it('Should check validation form add recipient', () => {
+    cy.viewport(1000, 800)
     cy.login()
     const statusPage = new StatusPage()
     statusPage.visit()
@@ -17,7 +18,6 @@ describe('Create  new recipient', () => {
     recipientsPage
         .getNewRecipientsBtn()
         .click()
-    cy.viewport(1000, 800)
     //first page recipient
     recipientsPage
         .getFirstStep().should('have.class','active')
@@ -26,17 +26,17 @@ describe('Create  new recipient', () => {
     recipientsPage
         .focusLastName()
     recipientsPage
-        .getInvalodFeadbackFirstName()
+        .getInvalidFeadbackFirstName()
         .should('have.text','First Name required, at least 1 and no more than 50 characters')
     recipientsPage
         .focusPhoneNumber()
     recipientsPage
-        .getInvalodFeadbackLastName()
+        .getInvalidFeadbackLastName()
         .should('have.text','Last Name required, at least 1 and no more than 50 characters')
     recipientsPage
         .focusFirstName()
     recipientsPage
-        .getInvalodFeadbackEmail()
+        .getInvalidFeadbackEmail()
         .should('have.text','Email Address required')
     recipientsPage
         .getNextBtn().should('be.disabled')
@@ -49,27 +49,27 @@ describe('Create  new recipient', () => {
     recipientsPage
         .getPhoneNumber('466')
     recipientsPage
-        .getInvalodFeadbackPhone()
+        .getInvalidFeadbackPhone()
         .should('have.text','Phone Number required, at least 7 and no more than 18 numbers, including international country code')
     recipientsPage
-        .getEmailAdress('myemail')
+        .getEmailAddress('myemail')
     recipientsPage
-        .getInvalodFeadbackEmail()
+        .getInvalidFeadbackEmail()
         .should('have.text','Email Address required')
     recipientsPage
         .getNextBtn().should('be.disabled')
         recipientsPage
         .getPhoneNumber('3806543')
     recipientsPage
-        .getEmailAdress('myemail@')
+        .getEmailAddress('myemail@')
     recipientsPage
-        .getInvalodFeadbackEmail()
+        .getInvalidFeadbackEmail()
         .should('have.text','Email Address required')
     recipientsPage
         .getNextBtn()
         .should('be.disabled')
     recipientsPage
-        .getEmailAdress('myemail@ukr.net')
+        .getEmailAddress('myemail@ukr.net')
     recipientsPage
         .getNextBtn()
         .should('be.enabled')
@@ -82,24 +82,24 @@ describe('Create  new recipient', () => {
     recipientsPage
         .focusCity()
     recipientsPage
-        .getInvalodFeadbackAdress1()
+        .getInvalidFeadbackAdress1()
         .should('have.text','Address Line 1 required, at least 1 and no more than 100 characters')
     recipientsPage
         .focusZipCode()
     recipientsPage
-        .getInvalodFeadbackCity()
+        .getInvalidFeadbackCity()
         .should('have.text','City required, at least 1 and no more than 100 characters')
     recipientsPage
-        .getAdressLine1('dfdfsfsfsf')
+        .getAddressLine1('dfdfsfsfsf')
     recipientsPage
-        .getInvalodFeadbackZipCode()
+        .getInvalidFeadbackZipCode()
         .should('have.text','Zip Code required, at least 5 numbers and no letters')
     recipientsPage
         .getStepNextBtn().should('be.disabled')
     recipientsPage
-        .getAdressLine1('42 Bald Hill Street Dallas TX 75228')
+        .getAddressLine1('42 Bald Hill Street Dallas TX 75228')
     recipientsPage
-        .getAdressLine2('1 George Lane Houston TX 77096')
+        .getAddressLine2('1 George Lane Houston TX 77096')
     recipientsPage
         .getState().select('Texas')
     recipientsPage
@@ -107,7 +107,7 @@ describe('Create  new recipient', () => {
     recipientsPage
         .getZipCode('123')
         recipientsPage
-        .getInvalodFeadbackZipCode()
+        .getInvalidFeadbackZipCode()
         .should('have.text','Zip Code required, at least 5 numbers and no letters')  
     recipientsPage
         .getStepNextBtn().should('be.disabled')
@@ -137,10 +137,10 @@ describe('Create  new recipient', () => {
         .getRecipientListEmail()
         .should('have.text','myemail@ukr.net')
     recipientsPage
-        .getRecipientListAdress1()
+        .getRecipientListAddress1()
         .should('have.text','42 Bald Hill Street Dallas TX 75228')
     recipientsPage
-        .getRecipientListAdress2()
+        .getRecipientListAddress2()
         .should('have.text','1 George Lane Houston TX 77096')
     recipientsPage
         .getRecipientListState()

@@ -14,7 +14,7 @@ export class RecipientsPage{
         field.type(value)
         return this
     }
-    getInvalodFeadbackCompany(){
+    getInvalidFeadbackCompany(){
         return cy.contains('Company Name required, at least 3 and no more than 100 characters')
     }
     focusFirstName(){
@@ -27,7 +27,7 @@ export class RecipientsPage{
         field.type(value)
         return this
     }
-    getInvalodFeadbackFirstName(){
+    getInvalidFeadbackFirstName(){
         return cy.contains('First Name required, at least 1 and no more than 50 characters')
     }
     focusLastName(){
@@ -40,7 +40,7 @@ export class RecipientsPage{
         field.type(value)
         return this
     }
-    getInvalodFeadbackLastName(){
+    getInvalidFeadbackLastName(){
         return cy.contains('Last Name required, at least 1 and no more than 50 characters')
     }
     focusPhoneNumber(){
@@ -53,20 +53,20 @@ export class RecipientsPage{
         field.type(value)
         return this
     }
-    getInvalodFeadbackPhone(){
+    getInvalidFeadbackPhone(){
         return cy.contains('Phone Number required, at least 7 and no more than 18 numbers, including international country code')
     }
-    focusEmailAdress(){
+    focusEmailAddress(){
         const field = cy.get('.form-group input[formcontrolname="email"]')
         field.focus()
     }
-    getEmailAdress(value){
+    getEmailAddress(value){
         const field = cy.get('.form-group input[formcontrolname="email"]')
         field.clear()
         field.type(value)
         return this
     }
-    getInvalodFeadbackEmail(){
+    getInvalidFeadbackEmail(){
         return cy.contains('Email Address required')
     }
     getNextBtn(){
@@ -79,17 +79,17 @@ export class RecipientsPage{
         const field = cy.get('.form-group input[formcontrolname="address1"]')
         field.focus()
     }
-    getAdressLine1(value){
+    getAddressLine1(value){
         const field = cy.get('.form-group input[formcontrolname="address1"]')
         field.clear()
         field.type(value)
         return this
 
     }
-    getInvalodFeadbackAdress1(){
+    getInvalidFeadbackAdress1(){
         return cy.contains('Address Line 1 required, at least 1 and no more than 100 characters')
     }
-    getAdressLine2(value){
+    getAddressLine2(value){
         const field = cy.get('.form-group input[formcontrolname="address2"]')
         field.clear()
         field.type(value)
@@ -111,7 +111,7 @@ export class RecipientsPage{
         return this
 
     }
-    getInvalodFeadbackCity(){
+    getInvalidFeadbackCity(){
         return cy.contains('City required, at least 1 and no more than 100 characters')
         
     }
@@ -126,7 +126,7 @@ export class RecipientsPage{
         field.type(value)
         return this
     }
-    getInvalodFeadbackZipCode(){
+    getInvalidFeadbackZipCode(){
         return cy.contains('Zip Code required, at least 5 numbers and no letters') 
     }
     getStepNextBtn(){
@@ -150,10 +150,10 @@ export class RecipientsPage{
     getRecipientListEmail(){
         return cy.get('.recipient-list li:nth-child(5) b') 
     }
-    getRecipientListAdress1(){
+    getRecipientListAddress1(){
         return cy.get('.recipient-list li:nth-child(6) b') 
     }
-    getRecipientListAdress2(){
+    getRecipientListAddress2(){
         return cy.get('.recipient-list li:nth-child(7) b') 
     }
     
