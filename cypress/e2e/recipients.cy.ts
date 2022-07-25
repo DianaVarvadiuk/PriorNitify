@@ -1,6 +1,6 @@
 import {StatusPage} from './page-object/StatusPage'
+import {RecipientDashboardPage} from './page-object/RecipientDashboardPage'
 import {RecipientsPage} from './page-object/RecipientsPage'
-
 describe('Create  new recipient', () => {
     beforeEach(()=>{
         cy.clearLocalStorage('loggedInUserData')
@@ -152,6 +152,90 @@ describe('Create  new recipient', () => {
         .getRecipientListZipCode()
         .should('have.text','75208')
     recipientsPage
+        .getSubmitBtn()
+        .click()
+  })
+  it.only('Should check full form edit/view  recipient', () => {
+    cy.viewport(1000, 800)
+    cy.login()
+    const statusPage = new StatusPage()
+    statusPage.visit()
+    let recipientsPage = new RecipientsPage()
+    recipientsPage
+        .getRecipiensList()
+        .click()
+    const recipientDasboard = new RecipientDashboardPage()
+    recipientDasboard
+        .getEditViewBtn()
+        .click()
+   recipientDasboard
+        .getCompanyName()
+        .should('have.value','live')
+   recipientDasboard
+        .getContactFirstName()
+        .should('have.value','Kriss')
+   recipientDasboard
+        .getContactLastName()
+        .should('have.value','Shaboo')
+  recipientDasboard
+        .getPhoneNumber()
+        .should('have.value','3806543')
+   recipientDasboard
+        .getEmailAdress()
+        .should('have.value','myemail@ukr.net')
+    recipientDasboard
+        .getNextBtn()
+        .click()
+    recipientDasboard
+        .getAddressLine1()
+        .should('have.value','42 Bald Hill Street Dallas TX 75228')
+    recipientDasboard
+        .getAddressLine2()
+        .should('have.value','1 George Lane Houston TX 77096')    
+    recipientDasboard
+        .getState()
+        .should('have.value','Texas')   
+    recipientDasboard
+        .getCity()
+        .should('have.value','Texas')  
+    recipientDasboard
+        .getZipCode()
+        .should('have.value','75208')
+    recipientDasboard
+        .getNextBtn()
+        .click()
+    //recipient list
+    recipientDasboard 
+        .getRecipientListCompany()
+        .should('have.text','live')
+    recipientDasboard
+        .getRecipientListFirstName()
+        .should('have.text','Kriss')
+    recipientDasboard
+        .getRecipientListLastName()
+        .should('have.text','Shaboo')
+    recipientDasboard
+        .getRecipientListPhone()
+        .should('have.text','3806543')
+    recipientDasboard
+        .getRecipientListEmail()
+        .should('have.text','myemail@ukr.net')
+    recipientDasboard
+        .getRecipientListAddress1()
+        .should('have.text','42 Bald Hill Street Dallas TX 75228')
+    recipientDasboard
+        .getRecipientListAddress2()
+        .should('have.text','1 George Lane Houston TX 77096')
+    recipientDasboard
+        .getRecipientListState()
+        .should('have.text','Texas')
+    recipientDasboard
+        .getRecipientListCity()
+        .should('have.text','Texas')
+    recipientDasboard
+        .getRecipientListZipCode()
+        .should('have.text','75208')
+    recipientDasboard
         .getSubmitBtn()
         .click()
   })
