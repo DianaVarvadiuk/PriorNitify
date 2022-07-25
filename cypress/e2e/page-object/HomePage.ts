@@ -1,5 +1,6 @@
 class HomePage {
   constructor() {}
+
   visit() {
     cy.visit("/");
   }
