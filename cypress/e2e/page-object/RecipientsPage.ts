@@ -8,107 +8,86 @@ export class RecipientsPage{
     getFirstStep(){
         return cy.get('app-stepper-header li:nth-child(1)')
     }
-    getCompany(value){
-        const field = cy.get('.form-group input[formcontrolname="company"]')
-        field.clear()
-        field.type(value)
-        return this
+    getCompany(){
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="company"]')
     }
     getInvalidFeadbackCompany(){
         return cy.contains('Company Name required, at least 3 and no more than 100 characters')
     }
     focusFirstName(){
-        const field = cy.get('.form-group input[formcontrolname="firstName"]')
-        field.focus()
+        return  cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="firstName"]')
     }
-    getFirstName(value){
-        const field = cy.get('.form-group input[formcontrolname="firstName"]')
-        field.clear()
-        field.type(value)
-        return this
+    getFirstName(){
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="firstName"]')
     }
     getInvalidFeadbackFirstName(){
         return cy.contains('First Name required, at least 1 and no more than 50 characters')
     }
     focusLastName(){
-        const field = cy.get('.form-group input[formcontrolname="lastName"]')
-        field.focus()
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="lastName"]')
+        
     }
-    getLastName(value){
-        const field = cy.get('.form-group input[formcontrolname="lastName"]')
-        field.clear()
-        field.type(value)
-        return this
+    getLastName(){
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="lastName"]')
     }
     getInvalidFeadbackLastName(){
         return cy.contains('Last Name required, at least 1 and no more than 50 characters')
     }
     focusPhoneNumber(){
-        const field = cy.get('.form-group input[formcontrolname="phone"]')
-        field.focus()
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="phone"]')
+        
     }
-    getPhoneNumber(value){
-        const field = cy.get('.form-group input[formcontrolname="phone"]')
-        field.clear()
-        field.type(value)
-        return this
+    getPhoneNumber(){
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="phone"]')
     }
     getInvalidFeadbackPhone(){
         return cy.contains('Phone Number required, at least 7 and no more than 18 numbers, including international country code')
     }
     focusEmailAddress(){
-        const field = cy.get('.form-group input[formcontrolname="email"]')
-        field.focus()
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="email"]')
+      
     }
-    getEmailAddress(value){
-        const field = cy.get('.form-group input[formcontrolname="email"]')
-        field.clear()
-        field.type(value)
-        return this
+    getEmailAddress(){
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="email"]')
     }
     getInvalidFeadbackEmail(){
         return cy.contains('Email Address required')
     }
     getNextBtn(){
-        return cy.get('app-stepper-footer button')
+        return cy.get('.modal.show app-stepper-footer button')
     }
     getLastStep(){
-        return cy.get('app-stepper-header li:nth-child(1)')
+        return cy.get('.modal.show app-stepper-header li:nth-child(1)')
     }
     focusAdressLine1(){
-        const field = cy.get('.form-group input[formcontrolname="address1"]')
-        field.focus()
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="address1"]')
     }
-    getAddressLine1(value){
-        const field = cy.get('.form-group input[formcontrolname="address1"]')
-        field.clear()
-        field.type(value)
-        return this
+    getAddressLine1(){
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="address1"]')
 
     }
     getInvalidFeadbackAdress1(){
         return cy.contains('Address Line 1 required, at least 1 and no more than 100 characters')
     }
-    getAddressLine2(value){
-        const field = cy.get('.form-group input[formcontrolname="address2"]')
-        field.clear()
-        field.type(value)
-        return this
+    getAddressLine2(){
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="address2"]')
+        // field.clear()
+        // field.type(value)
+        // return this
         
     }
     getState(){
 
-        return cy.get('select[formcontrolname="state"]')
+        return cy.get('.modal.show select[formcontrolname="state"]')
     }
     focusCity(){
-        const field = cy.get('.form-group input[formcontrolname="city"]')
-        field.focus()
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="city"]')
     }
-    getCity(value){
-        const field = cy.get('.form-group input[formcontrolname="city"]')
-        field.clear()
-        field.type(value)
-        return this
+    getCity(){
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="city"]')
+        // field.clear()
+        // field.type(value)
+        // return this
 
     }
     getInvalidFeadbackCity(){
@@ -116,57 +95,57 @@ export class RecipientsPage{
         
     }
     focusZipCode(){
-        const field = cy.get('.form-group input[formcontrolname="zipCode"]')
-        field.focus()
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="zipCode"]')
+   
     }
-    getZipCode(value){
+    getZipCode(){
 
-        const field = cy.get('.form-group input[formcontrolname="zipCode"]')
-        field.clear()
-        field.type(value)
-        return this
+        return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="zipCode"]')
+        // field.clear()
+        // field.type(value)
+        // return this
     }
     getInvalidFeadbackZipCode(){
         return cy.contains('Zip Code required, at least 5 numbers and no letters') 
     }
     getStepNextBtn(){
-        return cy.get('app-stepper-footer button.prev-step')
+        return cy.get('.modal.show app-stepper-footer button.prev-step')
     }
     getThirthStep(){
-            return cy.get('app-stepper-header li:nth-child(3)')
+            return cy.get('.modal.show app-stepper-header li:nth-child(3)')
     }
     getRecipientListCompany(){
-        return cy.get('.recipient-list li:nth-child(1) b')
+        return cy.get('.modal.show .recipient-list li:nth-child(1) b')
     }
     getRecipientListFirstName(){
-        return cy.get('.recipient-list li:nth-child(2) b')
+        return cy.get('.modal.show .recipient-list li:nth-child(2) b')
     }
     getRecipientListLastName(){
-        return cy.get('.recipient-list li:nth-child(3) b')
+        return cy.get('.modal.show .recipient-list li:nth-child(3) b')
     }
     getRecipientListPhone(){
-        return cy.get('.recipient-list li:nth-child(4) b') 
+        return cy.get('.modal.show .recipient-list li:nth-child(4) b') 
     }
     getRecipientListEmail(){
-        return cy.get('.recipient-list li:nth-child(5) b') 
+        return cy.get('.modal.show .recipient-list li:nth-child(5) b') 
     }
     getRecipientListAddress1(){
-        return cy.get('.recipient-list li:nth-child(6) b') 
+        return cy.get('.modal.show .recipient-list li:nth-child(6) b') 
     }
     getRecipientListAddress2(){
-        return cy.get('.recipient-list li:nth-child(7) b') 
+        return cy.get('.modal.show .recipient-list li:nth-child(7) b') 
     }
     
     getRecipientListState(){
-        return cy.get('.recipient-list li:nth-child(8) b') 
+        return cy.get('.modal.show .recipient-list li:nth-child(8) b') 
     }
     getRecipientListCity(){
         return cy.get('.recipient-list li:nth-child(9) b') 
     }
     getRecipientListZipCode(){
-        return cy.get('.recipient-list li:nth-child(10) b') 
+        return cy.get('.modal.show .recipient-list li:nth-child(10) b') 
     }
     getSubmitBtn(){
-        return cy.get('app-stepper-footer button.prev-step')
+        return cy.get('.modal.show app-stepper-footer button.prev-step')
     }
 }

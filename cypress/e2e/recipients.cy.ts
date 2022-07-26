@@ -22,46 +22,65 @@ describe('Create  new recipient', () => {
     recipientsPage
         .getFirstStep().should('have.class','active')
     recipientsPage
-        .getCompany('rv')
+        .getCompany()
+        .clear()
+        .type('rv')
     recipientsPage
         .focusLastName()
+        .focus()
     recipientsPage
         .getInvalidFeadbackFirstName()
         .should('have.text','First Name required, at least 1 and no more than 50 characters')
     recipientsPage
         .focusPhoneNumber()
+        .focus()
     recipientsPage
         .getInvalidFeadbackLastName()
         .should('have.text','Last Name required, at least 1 and no more than 50 characters')
     recipientsPage
         .focusFirstName()
+        .focus()
     recipientsPage
         .getInvalidFeadbackEmail()
         .should('have.text','Email Address required')
     recipientsPage
         .getNextBtn().should('be.disabled')
     recipientsPage
-        .getCompany('live')
+        .getCompany()
+        .clear()
+        .type('live')
     recipientsPage
-        .getFirstName('Kriss')
+        .getFirstName()
+        .clear()
+        .type('Kriss')
     recipientsPage
-        .getLastName('Shaboo')
+        .getLastName()
+        .clear()
+        .type('Shaboo')
     recipientsPage
-        .getPhoneNumber('466')
+        .getPhoneNumber()
+        .clear()
+        .type('466')
     recipientsPage
         .getInvalidFeadbackPhone()
         .should('have.text','Phone Number required, at least 7 and no more than 18 numbers, including international country code')
     recipientsPage
-        .getEmailAddress('myemail')
+        .getEmailAddress()
+        .clear()
+        .type('myemail')
     recipientsPage
         .getInvalidFeadbackEmail()
         .should('have.text','Email Address required')
     recipientsPage
         .getNextBtn().should('be.disabled')
         recipientsPage
-        .getPhoneNumber('3806543')
+        .getPhoneNumber()
+        .clear()
+        .type('3806543')
     recipientsPage
-        .getEmailAddress('myemail@')
+        .getEmailAddress()
+        .clear()
+        .type('myemail@')
     recipientsPage
         .getInvalidFeadbackEmail()
         .should('have.text','Email Address required')
@@ -69,7 +88,9 @@ describe('Create  new recipient', () => {
         .getNextBtn()
         .should('be.disabled')
     recipientsPage
-        .getEmailAddress('myemail@ukr.net')
+        .getEmailAddress()
+        .clear()
+        .type('myemail@ukr.net')
     recipientsPage
         .getNextBtn()
         .should('be.enabled')
@@ -90,29 +111,41 @@ describe('Create  new recipient', () => {
         .getInvalidFeadbackCity()
         .should('have.text','City required, at least 1 and no more than 100 characters')
     recipientsPage
-        .getAddressLine1('dfdfsfsfsf')
+        .getAddressLine1()
+        .clear()
+        .type('dfdfsfsfsf')
     recipientsPage
         .getInvalidFeadbackZipCode()
         .should('have.text','Zip Code required, at least 5 numbers and no letters')
     recipientsPage
         .getStepNextBtn().should('be.disabled')
     recipientsPage
-        .getAddressLine1('42 Bald Hill Street Dallas TX 75228')
+        .getAddressLine1()
+        .clear()
+        .type('42 Bald Hill Street Dallas TX 75228')
     recipientsPage
-        .getAddressLine2('1 George Lane Houston TX 77096')
+        .getAddressLine2()
+        .clear()
+        .type('1 George Lane Houston TX 77096')
     recipientsPage
         .getState().select('Texas')
     recipientsPage
-        .getCity('Texas')
+        .getCity()
+        .clear()
+        .type('Texas')
     recipientsPage
-        .getZipCode('123')
+        .getZipCode()
+        .clear()
+        .type('123')
         recipientsPage
         .getInvalidFeadbackZipCode()
         .should('have.text','Zip Code required, at least 5 numbers and no letters')  
     recipientsPage
         .getStepNextBtn().should('be.disabled')
     recipientsPage
-        .getZipCode('75208')
+        .getZipCode()
+        .clear()
+        .type('75208')
     recipientsPage
         .getStepNextBtn()
         .should('be.enabled')
@@ -155,7 +188,7 @@ describe('Create  new recipient', () => {
         .getSubmitBtn()
         .click()
   })
-  it.only('Should check full form edit/view  recipient', () => {
+  it('Should check full form edit/view  recipient', () => {
     cy.viewport(1000, 800)
     cy.login()
     const statusPage = new StatusPage()
@@ -167,75 +200,75 @@ describe('Create  new recipient', () => {
     const recipientDasboard = new RecipientDashboardPage()
     recipientDasboard
         .getEditViewBtn()
-        .click()
-   recipientDasboard
-        .getCompanyName()
+        .click() 
+    recipientsPage
+        .getCompany()
         .should('have.value','live')
-   recipientDasboard
-        .getContactFirstName()
+    recipientsPage
+        .getFirstName()
         .should('have.value','Kriss')
-   recipientDasboard
-        .getContactLastName()
+    recipientsPage
+        .getLastName()
         .should('have.value','Shaboo')
-  recipientDasboard
+    recipientsPage
         .getPhoneNumber()
         .should('have.value','3806543')
-   recipientDasboard
-        .getEmailAdress()
+    recipientsPage
+        .getEmailAddress()
         .should('have.value','myemail@ukr.net')
-    recipientDasboard
-        .getNextBtn()
-        .click()
-    recipientDasboard
+    recipientsPage
+        .getNextBtn() 
+        .click()     
+    recipientsPage
         .getAddressLine1()
         .should('have.value','42 Bald Hill Street Dallas TX 75228')
-    recipientDasboard
+    recipientsPage
         .getAddressLine2()
         .should('have.value','1 George Lane Houston TX 77096')    
-    recipientDasboard
+    recipientsPage
         .getState()
         .should('have.value','Texas')   
-    recipientDasboard
+    recipientsPage
         .getCity()
         .should('have.value','Texas')  
-    recipientDasboard
+    recipientsPage
         .getZipCode()
         .should('have.value','75208')
-    recipientDasboard
+    recipientsPage
         .getNextBtn()
         .click()
     //recipient list
-    recipientDasboard 
+    recipientsPage 
         .getRecipientListCompany()
         .should('have.text','live')
-    recipientDasboard
+    recipientsPage  
         .getRecipientListFirstName()
         .should('have.text','Kriss')
-    recipientDasboard
+    recipientsPage
         .getRecipientListLastName()
         .should('have.text','Shaboo')
-    recipientDasboard
+    recipientsPage
         .getRecipientListPhone()
         .should('have.text','3806543')
-    recipientDasboard
+    recipientsPage
         .getRecipientListEmail()
         .should('have.text','myemail@ukr.net')
-    recipientDasboard
+    recipientsPage
         .getRecipientListAddress1()
         .should('have.text','42 Bald Hill Street Dallas TX 75228')
-    recipientDasboard
+    recipientsPage
         .getRecipientListAddress2()
         .should('have.text','1 George Lane Houston TX 77096')
-    recipientDasboard
+    recipientsPage
         .getRecipientListState()
         .should('have.text','Texas')
-    recipientDasboard
+    recipientsPage
         .getRecipientListCity()
         .should('have.text','Texas')
-    recipientDasboard
+    recipientsPage  
         .getRecipientListZipCode()
         .should('have.text','75208')
-    recipientDasboard
+    recipientsPage
         .getSubmitBtn()
         .click()
   })
