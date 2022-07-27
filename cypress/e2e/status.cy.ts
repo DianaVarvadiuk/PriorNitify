@@ -49,7 +49,7 @@ describe('Status page', () => {
   .getInvalidFeedbackZIPPostal()
   .should('have.text','ZIP/Postal Code required, at least 1 and no more than 15 characters')
   statusPage
-  .getAdress('EscaldesEngordany')
+  .getAdress('Escaldes Engordany')
   statusPage
   .getPhone('+576575')
   statusPage

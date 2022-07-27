@@ -148,4 +148,16 @@ export class RecipientsPage{
     getSubmitBtn(){
         return cy.get('.modal.show app-stepper-footer button.prev-step')
     }
+    getDeleteBtn(){
+        return cy.get('app-recipients button.btn-danger')
+    }
+    getModal(){
+        return cy.get('.swal2-show[role="dialog"]')
+    }
+    getModalDeleteBtn(){
+        return cy.get('.swal2-actions button:nth-child(1)')
+    }
+    getSuccessMessage(){
+        return cy.get('h2.swal2-title')
+    }
 }
