@@ -56,4 +56,13 @@ export class MerchantsPage{
     getModal(){
         return cy.get('div.swal2-modal button.swal2-confirm')
     }
+    getMerchantsEditBtn(){
+        return cy.get('app-merchants .text-center button.custom-btn')
+    }
+    getDeleteBtn(){
+        return cy.get('app-merchants .text-center button.btn-danger')
+    }
+    getSuccessMessage(){
+        return cy.get('h2.swal2-title')
+    }
 }

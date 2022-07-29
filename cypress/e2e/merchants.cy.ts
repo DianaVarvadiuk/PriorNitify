@@ -9,6 +9,7 @@ describe('Create  new merchants', () => {
        cy.intercept('POST',/\/users\/change-card/,{fixture: 'interceptChangeCardFixtures.json'}).as('PostCard-Fixtures')
        cy.intercept('POST',/\/users/,{fixture:'interceptUsersFixtures.json'}).as('GetUsers-Fixtures')
        cy.intercept('GET','/users?page=1&perPage=10&type=1',{fixture:'interceptUsersTypeFixtures.json'}).as('GetUsersType-Fixtures')
+       cy.intercept('DELETE','/users/8567',{fixture:'interceptUsersDeleteFixtures.json'}).as('DeleteUsers-Fixtures')
          
     })
     it('Should check validation form add merchants', () => {
@@ -96,85 +97,109 @@ describe('Create  new merchants', () => {
         .click()
         recipientsPage
         .getLastStep().should('have.class','completed')
-    //two pge recipient
-    recipientsPage
-        .focusAdressLine1()
-    recipientsPage
-        .focusCity()
-    recipientsPage
-        .getInvalidFeadbackAdress1()
-        .should('have.text','Address Line 1 required, at least 1 and no more than 100 characters')
-    recipientsPage
-        .focusZipCode()
-        .focus()
-    recipientsPage
-        .getInvalidFeadbackCity()
-        .should('have.text','City required, at least 1 and no more than 100 characters')
-    recipientsPage
-        .getAddressLine1()
-        .clear()
-        .type('dfdfsfsfsf')
-    merchantsPage
-        .getInvalidFeadbackZipCode()
-        .should('have.text','ZIP/Postal Code required, at least 1 and no more than 15 characters')
-    merchantsPage
-        .getNextBtn().should('be.disabled')
-    recipientsPage
-        .getAddressLine1()
-        .clear()
-        .type('42 Bald Hill Street Dallas TX 75228')
-    recipientsPage
-        .getAddressLine2()
-        .clear()
-        .type('1 George Lane Houston TX 77096')
-    recipientsPage
-        .getCity()
-        .clear()
-        .type('Texas')
-    recipientsPage
-        .getZipCode()
-        .clear()
-        .type('123')
-   
-    recipientsPage
-        .getZipCode()
-        .clear()
-        .type('123456789012345')
-    merchantsPage
-        .getNextBtn()
+      //two pge recipient
+      recipientsPage
+          .focusAdressLine1()
+      recipientsPage
+          .focusCity()
+      recipientsPage
+          .getInvalidFeadbackAdress1()
+          .should('have.text','Address Line 1 required, at least 1 and no more than 100 characters')
+      recipientsPage
+          .focusZipCode()
+          .focus()
+      recipientsPage
+          .getInvalidFeadbackCity()
+          .should('have.text','City required, at least 1 and no more than 100 characters')
+      recipientsPage
+          .getAddressLine1()
+          .clear()
+          .type('dfdfsfsfsf')
+      merchantsPage
+          .getInvalidFeadbackZipCode()
+          .should('have.text','ZIP/Postal Code required, at least 1 and no more than 15 characters')
+      merchantsPage
+          .getNextBtn().should('be.disabled')
+      recipientsPage
+          .getAddressLine1()
+          .clear()
+          .type('42 Bald Hill Street Dallas TX 75228')
+      recipientsPage
+          .getAddressLine2()
+          .clear()
+          .type('1 George Lane Houston TX 77096')
+      recipientsPage
+          .getCity()
+          .clear()
+          .type('Texas')
+      recipientsPage
+          .getZipCode()
+          .clear()
+          .type('123')
+    
+      recipientsPage
+          .getZipCode()
+          .clear()
+          .type('123456789012345')
+      merchantsPage
+          .getNextBtn()
+          .should('be.enabled')
+          .click()
+      recipientsPage
+          .getThirthStep()
+          .should('have.class','active')
+      merchantsPage
+        .getCheckboxValueOne()
+        .should('not.be.checked')
+      merchantsPage
+        .getCheckboxValueTwo()
+        .should('not.be.checked')
+      merchantsPage
+        .getCheckboxValueThree()
+        .should('not.be.checked')
+      merchantsPage
+        .getCheckboxValueFour()
+        .should('not.be.checked')
+      merchantsPage
+        .getCheckboxValueFife()
+        .check()
+        .should('be.checked')
+      merchantsPage
+        .getCheckboxValueSix()
+        .should('not.be.checked')
+      merchantsPage
+        .getInputFdaCode()
+        .should('be.disabled')
+      recipientsPage
+        .getSubmitBtn()
         .should('be.enabled')
         .click()
-    recipientsPage
-        .getThirthStep()
-        .should('have.class','active')
-    merchantsPage
-      .getCheckboxValueOne()
-      .should('not.be.checked')
-    merchantsPage
-      .getCheckboxValueTwo()
-      .should('not.be.checked')
-    merchantsPage
-      .getCheckboxValueThree()
-      .should('not.be.checked')
-    merchantsPage
-      .getCheckboxValueFour()
-      .should('not.be.checked')
-    merchantsPage
-      .getCheckboxValueFife()
-      .check()
-      .should('be.checked')
-    merchantsPage
-      .getCheckboxValueSix()
-      .should('not.be.checked')
-    merchantsPage
-      .getInputFdaCode()
-      .should('be.disabled')
-    recipientsPage
-      .getSubmitBtn()
-      .should('be.enabled')
-      .click()
-    merchantsPage 
-      .getModal()
-      .click()
+      merchantsPage 
+        .getModal()
+        .click()
+    })
+    it('Should check  edit/view  and delete merchants', () => {
+      cy.login()
+      const statusPage = new StatusPage()
+      statusPage
+       .visit()
+    const merchantsPage = new MerchantsPage()
+      merchantsPage
+        .visit()
+      merchantsPage
+        .getMerchantsEditBtn()
+        .should('be.disabled')
+      merchantsPage
+        .getDeleteBtn()
+        .should('be.enabled')
+        .click()
+      const recipientsPage = new RecipientsPage()
+      recipientsPage
+        .getModalDeleteBtn()
+        .click()
+        cy.wait(2000)
+      merchantsPage
+        .getSuccessMessage()
+        .should('contain','Merchant has been successfully deleted!')
     })
 })
