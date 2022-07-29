@@ -2,16 +2,17 @@ import {StatusPage} from './page-object/StatusPage'
 import {MerchantsPage} from './page-object/MerchantsPage'
 import {ShippersPage} from './page-object/ShippersPage'
 import {RecipientsPage} from './page-object/RecipientsPage'
-describe('Create  new merchants', () => {
+describe('Create  new shippers', () => {
     beforeEach(()=>{
         cy.clearLocalStorage('loggedInUserData')
         cy.clearLocalStorage('token')
         cy.viewport(1920, 1080)
         cy.intercept('POST',/\/users/,{fixture:'interceptShippersUsersFixtures.json'}).as('PostUsers-Fixtures')
         cy.intercept('GET','/users?page=1&perPage=10&type=3',{fixture:'interceptShippersUsersTypeFixtures.json'}).as('GetUsersType-Fixtures') 
-        cy.intercept('GET',/\/users\/current/,{fixture: 'interceptShippersCurrentFixtures.json'}).as('GetCurrent-Fixtures')    
+        cy.intercept('GET',/\/users\/current/,{fixture: 'interceptShippersCurrentFixtures.json'}).as('GetCurrent-Fixtures')  
+        cy.intercept('DELETE','/users/8567',{fixture:'interceptUsersDeleteFixtures.json'}).as('DeleteUsers-Fixtures')  
     })
-    it('Should check validation form add merchants', () => {
+    it('Should check validation form add shippers', () => {
         cy.login()
       const statusPage = new StatusPage()
       statusPage
@@ -178,6 +179,28 @@ describe('Create  new merchants', () => {
     .getModal()
     .click()
 
-     
+    })
+    it('Should check  edit/view  and delete shippers', () => {
+      cy.login()
+      const statusPage = new StatusPage()
+      statusPage
+       .visit()
+       const shippersPage = new ShippersPage()
+       shippersPage
+          .visit()
+      shippersPage
+        .getShippersEditBtn()
+        .should('be.disabled')
+        shippersPage
+        .getDeleteBtn()
+        .should('be.enabled')
+        .click()
+      const recipientsPage = new RecipientsPage()
+      recipientsPage
+        .getModalDeleteBtn()
+        .click()
+        shippersPage
+        .getSuccessMessage()
+        .should('be.visible')
     })
 })

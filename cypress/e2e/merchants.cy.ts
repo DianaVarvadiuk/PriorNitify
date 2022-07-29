@@ -9,7 +9,7 @@ describe('Create  new merchants', () => {
        cy.intercept('POST',/\/users\/change-card/,{fixture: 'interceptChangeCardFixtures.json'}).as('PostCard-Fixtures')
        cy.intercept('POST',/\/users/,{fixture:'interceptUsersFixtures.json'}).as('PostUsers-Fixtures')
        cy.intercept('GET','/users?page=1&perPage=10&type=1',{fixture:'interceptUsersTypeFixtures.json'}).as('GetUsersType-Fixtures')
-       cy.intercept('DELETE','/users/8567',{fixture:'interceptUsersDeleteFixtures.json'}).as('DeleteUsers-Fixtures')
+       cy.intercept('DELETE','/users/8569',{fixture:'interceptUsersShippersDeleteFixtures.json'}).as('DeleteShippersDeleteUsers-Fixtures')
          
     })
     it('Should check validation form add merchants', () => {
