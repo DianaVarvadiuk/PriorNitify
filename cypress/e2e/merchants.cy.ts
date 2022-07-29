@@ -7,7 +7,7 @@ describe('Create  new merchants', () => {
         cy.clearLocalStorage('token')
         cy.viewport(1920, 1080)
        cy.intercept('POST',/\/users\/change-card/,{fixture: 'interceptChangeCardFixtures.json'}).as('PostCard-Fixtures')
-       cy.intercept('POST',/\/users/,{fixture:'interceptUsersFixtures.json'}).as('GetUsers-Fixtures')
+       cy.intercept('POST',/\/users/,{fixture:'interceptUsersFixtures.json'}).as('PostUsers-Fixtures')
        cy.intercept('GET','/users?page=1&perPage=10&type=1',{fixture:'interceptUsersTypeFixtures.json'}).as('GetUsersType-Fixtures')
        cy.intercept('DELETE','/users/8567',{fixture:'interceptUsersDeleteFixtures.json'}).as('DeleteUsers-Fixtures')
          
