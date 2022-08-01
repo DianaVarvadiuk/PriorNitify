@@ -1,1 +1,38 @@
-{"data":{"id":8535,"email":"varvadiukdidi@gmail.com","phone":"","firstName":"Valentyn","lastName":"Marynchyk","useAuthy":0,"role":10,"cancelling":null,"type":0,"last4":null,"address":null,"address2":null,"state":null,"city":null,"postalCode":null,"country":null,"registrationNumber":null,"pnPasswordRequired":true,"isCreditCardRequired":false,"shopifyName":null,"shopifyKey":null,"emails":[],"exemption":null,"parent":0,"company":"Move","fdaPhoneNumber":null,"PERMISSIONS":{"CREATE_PERMISSION":true,"CREATE_CARRIER":true,"CREATE_PRODUCT":true,"CREATE_SHIPPER":true},"hasInvalidRecipients":false,"paymentFailedAt":null}}
+{
+  "data": {
+    "id": 8535,
+    "email": "varvadiukdidi@gmail.com",
+    "phone": "",
+    "firstName": "Valentyn",
+    "lastName": "Marynchyk",
+    "useAuthy": 0,
+    "role": 10,
+    "cancelling": null,
+    "type": 0,
+    "last4": null,
+    "address": null,
+    "address2": null,
+    "state": null,
+    "city": null,
+    "postalCode": null,
+    "country": null,
+    "registrationNumber": null,
+    "pnPasswordRequired": true,
+    "isCreditCardRequired": false,
+    "shopifyName": null,
+    "shopifyKey": null,
+    "emails": [],
+    "exemption": null,
+    "parent": 0,
+    "company": "Move",
+    "fdaPhoneNumber": null,
+    "PERMISSIONS": {
+      "CREATE_PERMISSION": true,
+      "CREATE_CARRIER": true,
+      "CREATE_PRODUCT": true,
+      "CREATE_SHIPPER": true
+    },
+    "hasInvalidRecipients": false,
+    "paymentFailedAt": null
+  }
+}

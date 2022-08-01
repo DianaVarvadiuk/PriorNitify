@@ -1,9 +1,8 @@
 class HomePage {
-    constructor() {
-        
-    }
-    visit() {
-      cy.visit('/');
-    }
+  constructor() {}
+
+  visit() {
+    cy.visit("/");
+  }
 }
-export default HomePage
+export default HomePage;
