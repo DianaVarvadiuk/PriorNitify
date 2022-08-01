@@ -6,7 +6,6 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl: "https://dev-login.priornotify.com/",
-
     env: {
       email: "varvadiukdidi@gmail.com",
       password: "Tt12345678",
