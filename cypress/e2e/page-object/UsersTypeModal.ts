@@ -109,5 +109,8 @@ export class UsersTypeModal{
     getSubmitBtn(){
         return cy.get('.modal.show app-stepper-footer button.prev-step')
     }
+    getModalDeleteBtn(){
+        return cy.get('.swal2-actions button:nth-child(1)')
+    }
 
 }

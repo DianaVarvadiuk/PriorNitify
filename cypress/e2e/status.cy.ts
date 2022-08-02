@@ -1,44 +1,54 @@
-import {loadInterceptsDefaults} from './intercept/group_interceps/_defaults'
-import {StatusPage} from './page-object/StatusPage'
+import { loadInterceptsDefaults } from "./intercept/group_interceps/_defaults";
+import { StatusPage } from "./page-object/StatusPage";
 
-describe('Status page', () => {
-    beforeEach(()=>{
-        cy.clearLocalStorage('loggedInUserData')
-        cy.clearLocalStorage('token')
-        loadInterceptsDefaults()
-        cy.viewport(1920, 1080)
-      
-     })
-  it('Should check validation form', () => {
-    cy.login()
-  const statusPage = new StatusPage()
-  statusPage.visit()
-  statusPage 
-    .getModal()
-    .click()
-  statusPage
-    .getCountry()
-    .click()
-  statusPage
-    .getAndorra()
-    .click()
-  statusPage
-      .getCityFocus()
-  statusPage
-      .getFocusAdress()
-  statusPage
-    .getInvalidFeedbackCity()
-    .should('have.text','City required, at least 1 and no more than 100 characters')
-  statusPage
-      .getZIPPostalCodeFocus()
-  statusPage
+describe("Status page", () => {
+  beforeEach(() => {
+    cy.clearLocalStorage("loggedInUserData");
+    cy.clearLocalStorage("token");
+    loadInterceptsDefaults();
+    cy.viewport(1920, 1080);
+  });
+  it("Should check validation form", () => {
+    cy.login();
+    const statusPage = new StatusPage();
+    statusPage.visit();
+    statusPage.getModal().click();
+    statusPage.getCountry().click();
+    statusPage.getAndorra().click();
+    statusPage.getCityFocus();
+    statusPage.getFocusAdress();
+    statusPage
+      .getInvalidFeedbackCity()
+      .should(
+        "have.text",
+        "City required, at least 1 and no more than 100 characters"
+      );
+    statusPage.getZIPPostalCodeFocus();
+    statusPage
       .getInvalidFeedbackAdress()
-      .should('have.text','Address Line 1 required, at least 1 and no more than 100 characters')
-  statusPage
-  .getPhoneFocus()
-  statusPage
-    .getInvalidFeedbackZIPPostal()
-    .should('have.text','ZIP/Postal Code required, at least 1 and no more than 15 characters')
+      .should(
+        "have.text",
+        "Address Line 1 required, at least 1 and no more than 100 characters"
+      );
+    statusPage.getPhoneFocus();
+    statusPage
+      .getInvalidFeedbackZIPPostal()
+      .should(
+        "have.text",
+        "ZIP/Postal Code required, at least 1 and no more than 15 characters"
+      );
+    statusPage.getCity("Encamp");
+    cy.wait(1000);
+    //invalid data
+    statusPage.getZIPPostalCode("890908908908908908089080");
+    statusPage
+      .getInvalidFeedbackZIPPostal()
+      .should(
+        "have.text",
+        "ZIP/Postal Code required, at least 1 and no more than 15 characters"
+      );
+    statusPage.getAdress("EscaldesEngordany");
+    statusPage.getPhone("+576575");
     statusPage
   .getCity('Encamp')
   cy.wait(1000)
