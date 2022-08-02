@@ -1,33 +1,32 @@
- export class LoginPage{
-  visit(){
-    return cy.visit('/login')
+export class LoginPage {
+  visit() {
+    return cy.visit("/login");
   }
 
-  getLanguage(){
-    return cy.get('div[id^=":0.targetLanguage"]')
- }
-  getEmail(value){
-    const field = cy.get('#exampleInputEmail1')
-    field.clear()
-    field.type(value)
-
-    return this
+  getLanguage() {
+    return cy.get('div[id^=":0.targetLanguage"]');
   }
-  getPassword(value){
-    const field = cy.get('#exampleInputPassword1')
-    field.clear()
-    field.type(value)
+  getEmail(value) {
+    const field = cy.get("#exampleInputEmail1");
+    field.clear();
+    field.type(value);
 
-    return this
+    return this;
+  }
+  getPassword(value) {
+    const field = cy.get("#exampleInputPassword1");
+    field.clear();
+    field.type(value);
+
+    return this;
   }
   getCheckbox() {
-    return cy.get('.fa-check')
+    return cy.get(".fa-check");
   }
-  getLoginBtn(){
-    return cy.get('.custom-btn')
+  getLoginBtn() {
+    return cy.get(".custom-btn");
   }
-  getModalMessage()
-    {
-       return cy.get('.swal2-actions button')
-    }
+  getModalMessage() {
+    return cy.get(".swal2-actions button");
+  }
 }

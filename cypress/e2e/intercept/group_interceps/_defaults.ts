@@ -7,6 +7,4 @@ export function loadInterceptsDefaults(){
     cy.intercept('GET',/\/users\/payment-info/,{fixture: 'interceptPaymentInfoFixtures.json'}).as('GetPaymentInfo-Fixtures')
     cy.intercept('GET',/\/notices\/statistic/,{fixture: 'interceptStatisticFixtures.json'}).as('GetStatistic-Fixtures')
     cy.intercept('GET','users?page=1&perPage=10&type=1',{fixture: 'interceptType1Fixtures.json'}).as('GetTypeFixtures')
-    cy.intercept('GET','users?page=1&perPage=10&type=1',{fixture: 'interceptType1Fixtures.json'}).as('GetTypeFixtures')
- 
 }
