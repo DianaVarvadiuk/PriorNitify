@@ -1,6 +1,6 @@
 import {StatusPage} from './page-object/StatusPage'
 import {MerchantsPage} from './page-object/MerchantsPage'
-import {RecipientsPage} from './page-object/RecipientsPage'
+import {UsersTypeModal} from './page-object/UsersTypeModal'
 describe('Create  new merchants', () => {
     beforeEach(()=>{
         cy.clearLocalStorage('loggedInUserData')
@@ -25,156 +25,154 @@ describe('Create  new merchants', () => {
       merchantsPage
         .getCountry()
         .select(1)
-      const recipientsPage = new RecipientsPage()
-      recipientsPage
-      recipientsPage
+      const usersTypeModal = new UsersTypeModal()
+      usersTypeModal
       .getFirstStep().should('have.class','active')
       merchantsPage
         .focusCompany()
         .focus()
-      recipientsPage
+      usersTypeModal
         .focusFirstName()
         .focus()
-      recipientsPage
+      usersTypeModal
         .getInvalidFeadbackFirstName()
         .should('have.text','First Name required, at least 1 and no more than 50 characters')
-      recipientsPage
+      usersTypeModal
         .focusLastName()
         .focus()
-      recipientsPage
+      usersTypeModal
         .getInvalidFeadbackLastName()
         .should('have.text','Last Name required, at least 1 and no more than 50 characters')
-      recipientsPage
+      usersTypeModal
         .focusPhoneNumber()
         .focus()
-      recipientsPage
+      usersTypeModal
         .getInvalidFeadbackPhone()
         .should('have.text','Phone Number required, at least 7 and no more than 18 numbers, including international country code')
-      recipientsPage
+      usersTypeModal
         .focusEmailAddress()
         .focus()
-      recipientsPage
+      usersTypeModal
         .getInvalidFeadbackEmail()
         .should('have.text','Email Address required')
       merchantsPage
         .getCountry().select(2)
-      recipientsPage
+      usersTypeModal
         .getCompany()
         .type('Drive')
-      recipientsPage
+      usersTypeModal
         .getFirstName()
         .type('Antonenko')
-      recipientsPage
+      usersTypeModal
         .getLastName()
         .type('Vladislava')
-      recipientsPage
+      usersTypeModal
         .getPhoneNumber()
         .type('423423')
-      recipientsPage
+      usersTypeModal
         .getInvalidFeadbackPhone()
         .should('have.text','Phone Number required, at least 7 and no more than 18 numbers, including international country code')
-      recipientsPage
+      usersTypeModal
         .getEmailAddress()
         .type('sdad@gmailcom')
-      recipientsPage
+      usersTypeModal
         .getInvalidFeadbackEmail()
         .should('have.text','Email Address required')
-      recipientsPage
+      usersTypeModal
         .getNextBtn()
         .should('be.disabled')
-      recipientsPage
+      usersTypeModal
         .getPhoneNumber()
         .clear()
         .type('+38097423423')
-      recipientsPage
+      usersTypeModal
         .getEmailAddress()
         .clear()
         .type('driveofficall@gmail.com')
-        recipientsPage
+      usersTypeModal
         .getNextBtn()
         .should('be.enabled')
         .click()
-        recipientsPage
+      usersTypeModal
         .getLastStep().should('have.class','completed')
     //two pge recipient
-    recipientsPage
+      usersTypeModal
         .focusAdressLine1()
-    recipientsPage
+      usersTypeModal
         .focusCity()
-    recipientsPage
+      usersTypeModal
         .getInvalidFeadbackAdress1()
         .should('have.text','Address Line 1 required, at least 1 and no more than 100 characters')
-    recipientsPage
+      usersTypeModal
         .focusZipCode()
         .focus()
-    recipientsPage
+      usersTypeModal
         .getInvalidFeadbackCity()
         .should('have.text','City required, at least 1 and no more than 100 characters')
-    recipientsPage
+      usersTypeModal
         .getAddressLine1()
         .clear()
         .type('dfdfsfsfsf')
-    merchantsPage
+      merchantsPage
         .getInvalidFeadbackZipCode()
         .should('have.text','ZIP/Postal Code required, at least 1 and no more than 15 characters')
-    merchantsPage
+      merchantsPage
         .getNextBtn().should('be.disabled')
-    recipientsPage
+      usersTypeModal
         .getAddressLine1()
         .clear()
         .type('42 Bald Hill Street Dallas TX 75228')
-    recipientsPage
+      usersTypeModal
         .getAddressLine2()
         .clear()
         .type('1 George Lane Houston TX 77096')
-    recipientsPage
+      usersTypeModal
         .getCity()
         .clear()
         .type('Texas')
-    recipientsPage
+      usersTypeModal
         .getZipCode()
         .clear()
         .type('123')
-   
-    recipientsPage
+      usersTypeModal
         .getZipCode()
         .clear()
         .type('123456789012345')
-    merchantsPage
+      merchantsPage
         .getNextBtn()
         .should('be.enabled')
         .click()
-    recipientsPage
+      usersTypeModal
         .getThirthStep()
         .should('have.class','active')
-    merchantsPage
-      .getCheckboxValueOne()
-      .should('not.be.checked')
-    merchantsPage
-      .getCheckboxValueTwo()
-      .should('not.be.checked')
-    merchantsPage
-      .getCheckboxValueThree()
-      .should('not.be.checked')
-    merchantsPage
-      .getCheckboxValueFour()
-      .should('not.be.checked')
-    merchantsPage
-      .getCheckboxValueFife()
-      .check()
-      .should('be.checked')
-    merchantsPage
-      .getCheckboxValueSix()
-      .should('not.be.checked')
-    merchantsPage
-      .getInputFdaCode()
-      .should('be.disabled')
-    recipientsPage
-      .getSubmitBtn()
-      .should('be.enabled')
-      .click()
-    merchantsPage 
-      .getModal()
-      .click()
+      merchantsPage
+        .getCheckboxValueOne()
+        .should('not.be.checked')
+      merchantsPage
+        .getCheckboxValueTwo()
+        .should('not.be.checked')
+      merchantsPage
+        .getCheckboxValueThree()
+        .should('not.be.checked')
+      merchantsPage
+        .getCheckboxValueFour()
+        .should('not.be.checked')
+      merchantsPage
+        .getCheckboxValueFife()
+        .check()
+        .should('be.checked')
+      merchantsPage
+        .getCheckboxValueSix()
+        .should('not.be.checked')
+      merchantsPage
+        .getInputFdaCode()
+        .should('be.disabled')
+      usersTypeModal
+        .getSubmitBtn()
+        .should('be.enabled')
+        .click()
+      merchantsPage 
+        .getModal()
+        .click()
     })
 })
