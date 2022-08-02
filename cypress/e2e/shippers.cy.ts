@@ -1,7 +1,7 @@
 import {StatusPage} from './page-object/StatusPage'
 import {MerchantsPage} from './page-object/MerchantsPage'
 import {ShippersPage} from './page-object/ShippersPage'
-import {RecipientsPage} from './page-object/RecipientsPage'
+import {UsersTypeModal} from './page-object/UsersTypeModal'
 describe('Create  new shippers', () => {
     beforeEach(()=>{
         cy.clearLocalStorage('loggedInUserData')
@@ -27,92 +27,91 @@ describe('Create  new shippers', () => {
     merchantsPage
     .getCountry()
     .select(1)
-  const recipientsPage = new RecipientsPage()
-  recipientsPage
-  recipientsPage
+  const usersTypeModal = new UsersTypeModal()
+  usersTypeModal
   .getFirstStep().should('have.class','active')
   merchantsPage
     .focusCompany()
     .focus()
-  recipientsPage
+  usersTypeModal
     .focusFirstName()
     .focus()
-  recipientsPage
+  usersTypeModal
     .getInvalidFeadbackFirstName()
     .should('have.text','First Name required, at least 1 and no more than 50 characters')
-  recipientsPage
+  usersTypeModal
     .focusLastName()
     .focus()
-  recipientsPage
+  usersTypeModal
     .getInvalidFeadbackLastName()
     .should('have.text','Last Name required, at least 1 and no more than 50 characters')
-  recipientsPage
+  usersTypeModal
     .focusPhoneNumber()
     .focus()
-  recipientsPage
+  usersTypeModal
     .getInvalidFeadbackPhone()
     .should('have.text','Phone Number required, at least 7 and no more than 18 numbers, including international country code')
-  recipientsPage
+  usersTypeModal
     .focusEmailAddress()
     .focus()
-  recipientsPage
+  usersTypeModal
     .getInvalidFeadbackEmail()
     .should('have.text','Email Address required')
   merchantsPage
     .getCountry().select(2)
-  recipientsPage
+  usersTypeModal
     .getCompany()
     .type('Go up')
-  recipientsPage
+  usersTypeModal
     .getFirstName()
     .type('Lykash')
-  recipientsPage
+  usersTypeModal
     .getLastName()
     .type('Anna')
-  recipientsPage
+  usersTypeModal
     .getPhoneNumber()
     .type('45676')
-  recipientsPage
+  usersTypeModal
     .getInvalidFeadbackPhone()
     .should('have.text','Phone Number required, at least 7 and no more than 18 numbers, including international country code')
-  recipientsPage
+  usersTypeModal
     .getEmailAddress()
     .type('ggyu@gmailcom')
-  recipientsPage
+  usersTypeModal
     .getInvalidFeadbackEmail()
     .should('have.text','Email Address required')
-  recipientsPage
+  usersTypeModal
     .getNextBtn()
     .should('be.disabled')
-  recipientsPage
+  usersTypeModal
     .getPhoneNumber()
     .clear()
     .type('+38098757')
-  recipientsPage
+  usersTypeModal
     .getEmailAddress()
     .clear()
     .type('goupofficall@gmail.com')
-    recipientsPage
+  usersTypeModal
     .getNextBtn()
     .should('be.enabled')
     .click()
-    recipientsPage
+  usersTypeModal
     .getLastStep().should('have.class','completed')
   //two pge recipient
-  recipientsPage
+  usersTypeModal
       .focusAdressLine1()
-  recipientsPage
+  usersTypeModal
       .focusCity()
-  recipientsPage
+  usersTypeModal
       .getInvalidFeadbackAdress1()
       .should('have.text','Address Line 1 required, at least 1 and no more than 100 characters')
-  recipientsPage
+  usersTypeModal
       .focusZipCode()
       .focus()
-  recipientsPage
+  usersTypeModal
       .getInvalidFeadbackCity()
       .should('have.text','City required, at least 1 and no more than 100 characters')
-  recipientsPage
+  usersTypeModal
       .getAddressLine1()
       .clear()
       .type('adress')
@@ -121,24 +120,24 @@ describe('Create  new shippers', () => {
       .should('have.text','ZIP/Postal Code required, at least 1 and no more than 15 characters')
   merchantsPage
       .getNextBtn().should('be.disabled')
-  recipientsPage
+  usersTypeModal
       .getAddressLine1()
       .clear()
       .type('52 Bald Hill Street Dallas ')
-  recipientsPage
+  usersTypeModal
       .getAddressLine2()
       .clear()
       .type('2 George Lane Houston ')
-  recipientsPage
+  usersTypeModal
       .getCity()
       .clear()
       .type('Texas')
-  recipientsPage
+  usersTypeModal
       .getZipCode()
       .clear()
       .type('123')
 
-  recipientsPage
+  usersTypeModal
       .getZipCode()
       .clear()
       .type('123456789012345')
@@ -146,7 +145,7 @@ describe('Create  new shippers', () => {
       .getNextBtn()
       .should('be.enabled')
       .click()
-  recipientsPage
+  usersTypeModal
       .getThirthStep()
       .should('have.class','active')
   merchantsPage
@@ -171,7 +170,7 @@ describe('Create  new shippers', () => {
   merchantsPage
     .getInputFdaCode()
     .should('be.disabled')
-  recipientsPage
+  usersTypeModal
     .getSubmitBtn()
     .should('be.enabled')
     .click()
@@ -195,8 +194,8 @@ describe('Create  new shippers', () => {
         .getDeleteBtn()
         .should('be.enabled')
         .click()
-      const recipientsPage = new RecipientsPage()
-      recipientsPage
+      const usersTypeModal = new UsersTypeModal()
+      usersTypeModal
         .getModalDeleteBtn()
         .click()
         shippersPage
