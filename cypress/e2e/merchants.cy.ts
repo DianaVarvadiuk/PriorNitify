@@ -175,86 +175,6 @@ describe('Create  new merchants', () => {
       merchantsPage 
         .getModal()
         .click()
-      //two pge recipient
-      usersTypeModal
-          .focusAdressLine1()
-      usersTypeModal
-          .focusCity()
-      usersTypeModal
-          .getInvalidFeadbackAdress1()
-          .should('have.text','Address Line 1 required, at least 1 and no more than 100 characters')
-      usersTypeModal
-          .focusZipCode()
-          .focus()
-      usersTypeModal
-          .getInvalidFeadbackCity()
-          .should('have.text','City required, at least 1 and no more than 100 characters')
-      usersTypeModal
-          .getAddressLine1()
-          .clear()
-          .type('dfdfsfsfsf')
-      merchantsPage
-          .getInvalidFeadbackZipCode()
-          .should('have.text','ZIP/Postal Code required, at least 1 and no more than 15 characters')
-      merchantsPage
-          .getNextBtn().should('be.disabled')
-      usersTypeModal
-          .getAddressLine1()
-          .clear()
-          .type('42 Bald Hill Street Dallas TX 75228')
-      usersTypeModal
-          .getAddressLine2()
-          .clear()
-          .type('1 George Lane Houston TX 77096')
-      usersTypeModal
-          .getCity()
-          .clear()
-          .type('Texas')
-      usersTypeModal
-          .getZipCode()
-          .clear()
-          .type('123')
-    
-      usersTypeModal
-          .getZipCode()
-          .clear()
-          .type('123456789012345')
-      merchantsPage
-          .getNextBtn()
-          .should('be.enabled')
-          .click()
-      usersTypeModal
-          .getThirthStep()
-          .should('have.class','active')
-      merchantsPage
-        .getCheckboxValueOne()
-        .should('not.be.checked')
-      merchantsPage
-        .getCheckboxValueTwo()
-        .should('not.be.checked')
-      merchantsPage
-        .getCheckboxValueThree()
-        .should('not.be.checked')
-      merchantsPage
-        .getCheckboxValueFour()
-        .should('not.be.checked')
-      merchantsPage
-        .getCheckboxValueFife()
-        .check()
-        .should('be.checked')
-      merchantsPage
-        .getCheckboxValueSix()
-        .should('not.be.checked')
-      merchantsPage
-        .getInputFdaCode()
-        .should('be.disabled')
-      usersTypeModal
-        .getSubmitBtn()
-        .should('be.enabled')
-        .click()
-      merchantsPage 
-        .getModal()
-        .click()
     })
     it('Should check  edit/view  and delete merchants', () => {
       cy.login()
@@ -275,9 +195,9 @@ describe('Create  new merchants', () => {
       usersTypeModal
         .getModalDeleteBtn()
         .click()
-        cy.wait(2000)
-      merchantsPage
-        .getSuccessMessage()
-        .should('contain','Merchant has been successfully deleted!')
+       // cy.wait(2000)
+      // merchantsPage
+      //   .getSuccessMessage()
+      //   .should('contain','Merchant has been successfully deleted!')
     })
 })
