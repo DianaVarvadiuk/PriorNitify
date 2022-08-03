@@ -96,57 +96,56 @@ describe('Create  new merchants', () => {
         .click()
       usersTypeModal
         .getLastStep().should('have.class','completed')
-      //two pge recipient
+    //two pge recipient
       usersTypeModal
-          .focusAdressLine1()
+        .focusAdressLine1()
       usersTypeModal
-          .focusCity()
+        .focusCity()
       usersTypeModal
-          .getInvalidFeadbackAdress1()
-          .should('have.text','Address Line 1 required, at least 1 and no more than 100 characters')
+        .getInvalidFeadbackAdress1()
+        .should('have.text','Address Line 1 required, at least 1 and no more than 100 characters')
       usersTypeModal
-          .focusZipCode()
-          .focus()
+        .focusZipCode()
+        .focus()
       usersTypeModal
-          .getInvalidFeadbackCity()
-          .should('have.text','City required, at least 1 and no more than 100 characters')
+        .getInvalidFeadbackCity()
+        .should('have.text','City required, at least 1 and no more than 100 characters')
       usersTypeModal
-          .getAddressLine1()
-          .clear()
-          .type('dfdfsfsfsf')
+        .getAddressLine1()
+        .clear()
+        .type('dfdfsfsfsf')
       merchantsPage
-          .getInvalidFeadbackZipCode()
-          .should('have.text','ZIP/Postal Code required, at least 1 and no more than 15 characters')
+        .getInvalidFeadbackZipCode()
+        .should('have.text','ZIP/Postal Code required, at least 1 and no more than 15 characters')
       merchantsPage
-          .getNextBtn().should('be.disabled')
+        .getNextBtn().should('be.disabled')
       usersTypeModal
-          .getAddressLine1()
-          .clear()
-          .type('42 Bald Hill Street Dallas TX 75228')
+        .getAddressLine1()
+        .clear()
+        .type('42 Bald Hill Street Dallas TX 75228')
       usersTypeModal
-          .getAddressLine2()
-          .clear()
-          .type('1 George Lane Houston TX 77096')
+        .getAddressLine2()
+        .clear()
+        .type('1 George Lane Houston TX 77096')
       usersTypeModal
-          .getCity()
-          .clear()
-          .type('Texas')
+        .getCity()
+        .clear()
+        .type('Texas')
       usersTypeModal
-          .getZipCode()
-          .clear()
-          .type('123')
-    
+        .getZipCode()
+        .clear()
+        .type('123')
       usersTypeModal
-          .getZipCode()
-          .clear()
-          .type('123456789012345')
+        .getZipCode()
+        .clear()
+        .type('123456789012345')
       merchantsPage
-          .getNextBtn()
-          .should('be.enabled')
-          .click()
+        .getNextBtn()
+        .should('be.enabled')
+        .click()
       usersTypeModal
-          .getThirthStep()
-          .should('have.class','active')
+        .getThirthStep()
+        .should('have.class','active')
       merchantsPage
         .getCheckboxValueOne()
         .should('not.be.checked')
@@ -196,9 +195,9 @@ describe('Create  new merchants', () => {
       usersTypeModal
         .getModalDeleteBtn()
         .click()
-        cy.wait(2000)
-      merchantsPage
-        .getSuccessMessage()
-        .should('contain','Merchant has been successfully deleted!')
+       // cy.wait(2000)
+      // merchantsPage
+      //   .getSuccessMessage()
+      //   .should('contain','Merchant has been successfully deleted!')
     })
 })
