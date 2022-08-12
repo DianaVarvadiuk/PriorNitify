@@ -23,8 +23,8 @@ describe("Log in on page and check inputs", () => {
     logIn.getPassword("12344567");
     //.getCheckbox().click()
     logIn.getLoginBtn().should("be.disabled");
-    //sign in valid
-    cy.login();
+    // //sign in valid
+    // cy.login();
   });
   it("Should log in the page via  ukrainian language", () => {
     const home = new HomePage();
