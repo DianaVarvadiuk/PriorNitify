@@ -65,9 +65,6 @@ export class UsersTypeModal{
     }
     getAddressLine2(){
         return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="address2"]')
-        // field.clear()
-        // field.type(value)
-        // return this
         
     }
     getState(){
@@ -79,10 +76,6 @@ export class UsersTypeModal{
     }
     getCity(){
         return cy.get('.modal.show app-user-form app-body-stepper [formcontrolname="city"]')
-        // field.clear()
-        // field.type(value)
-        // return this
-
     }
     getInvalidFeadbackCity(){
         return cy.contains('City required, at least 1 and no more than 100 characters')
