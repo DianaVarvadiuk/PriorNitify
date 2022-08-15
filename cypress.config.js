@@ -7,8 +7,8 @@ module.exports = defineConfig({
     },
     baseUrl: "https://dev-login.priornotify.com/",
     env: {
-      email: "varvadiukdidi@gmail.com",
-      password: "Ff12345678",
+      email: "varvadiukdidi+2@gmail.com",
+      password: "Dd12345678",
     },
   },
 });

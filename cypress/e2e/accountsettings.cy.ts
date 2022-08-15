@@ -94,7 +94,7 @@ describe('Check validation for account settings', () => {
             .click()
         accountSettingPage
             .getOldPassword()
-            .type('Tt12345678')
+            .type('Dd12345678')
         accountSettingPage
             .getModalConfirmBtn()
             .click()
@@ -166,7 +166,7 @@ describe('Check validation for account settings', () => {
         accountSettingPage
              .getOldPasswordPhone()
              .clear()
-             .type('Tt12345678')
+             .type('Dd12345678')
         accountSettingPage
              .getModalConfirmBtn()
              .click()
@@ -210,7 +210,7 @@ describe('Check validation for account settings', () => {
             .getPasswordInvalidFeadback()
         accountSettingPage
             .getChangePassword()
-            .type('Ff12345678')
+            .type('Dd12345678')
         accountSettingPage 
             .getPasswordSaveBtn()
             .click()
@@ -230,7 +230,7 @@ describe('Check validation for account settings', () => {
         accountSettingPage
             .getOldModalPassword()
             .clear()
-            .type('Tt12345678')
+            .type('Dd12345678')
         accountSettingPage
             .getModalConfirmBtn()
             .click()
@@ -261,7 +261,7 @@ describe('Check validation for account settings', () => {
         accountSettingPage
             .getCancelModalInput()
 })
-    it('check Recipients of Account Notices validation ',() => { 
+    it.only('check Recipients of Account Notices validation ',() => { 
         cy.login()
         const statusPage = new StatusPage()
         statusPage
@@ -292,18 +292,6 @@ describe('Check validation for account settings', () => {
         accountSettingPage
             .getDefaultEmail()
             .should('not.have.class','close')
-        accountSettingPage
-            .getTurnOffEmailCheckbox()
-            .check()
-        accountSettingPage
-            .getYesBtn()
-            .click()
-        accountSettingPage
-            .getTurnOffEmailCheckbox()
-            .should('be.checked')
-         accountSettingPage
-            .getTurnOffEmailCheckbox()
-            .uncheck()
         accountSettingPage
             .getTurnOffEmailCheckbox()
             .check()

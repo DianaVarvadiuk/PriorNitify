@@ -93,6 +93,7 @@ export class AccountSettingPage{
     getYesBtn(){
         return cy.get('.swal2-actions button:nth-child(1)')
     }
+    
     getModalCancelBtn(){
         return cy.get('.swal2-actions button:nth-child(2)')
     }
