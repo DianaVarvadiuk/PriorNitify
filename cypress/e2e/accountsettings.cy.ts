@@ -20,7 +20,7 @@ describe('Check validation for account settings', () => {
         merchantsPage
             .getAccountSettingBtn()
             .click()
-        cy.url().should('include', 'https://dev-login.priornotify.com/status/me')
+        cy.url().should('include', '/status/me')
         const accountSettingPage = new AccountSettingPage()
         accountSettingPage
             .getChangeEmail()
@@ -109,7 +109,7 @@ describe('Check validation for account settings', () => {
             .click()
         accountSettingPage
             .getInvalidEmailFeadback()
-            accountSettingPage
+        accountSettingPage
             .getChangeEmail()
             .type('idigmail.com')
         accountSettingPage
@@ -117,7 +117,7 @@ describe('Check validation for account settings', () => {
             .click()
         accountSettingPage
             .getInvalidEmailFeadback()
-            accountSettingPage
+        accountSettingPage
             .getChangeEmail()
             .clear()
             .type('varvadiukdidi@gmail.com')
@@ -146,8 +146,8 @@ describe('Check validation for account settings', () => {
         merchantsPage
             .getAccountSettingBtn()
             .click()
-         const accountSettingPage = new AccountSettingPage()
-         accountSettingPage
+        const accountSettingPage = new AccountSettingPage()
+        accountSettingPage
             .getChangePhone()
             .clear()
             .type('+')
@@ -156,7 +156,7 @@ describe('Check validation for account settings', () => {
             .click()
         accountSettingPage
             .getInvalidPhoneFeadback()
-            accountSettingPage
+        accountSettingPage
             .getChangePhone()
             .clear()
             .type('+7868687678')
@@ -183,8 +183,8 @@ describe('Check validation for account settings', () => {
         merchantsPage
             .getAccountSettingBtn()
             .click()
-         const accountSettingPage = new AccountSettingPage()
-         accountSettingPage
+        const accountSettingPage = new AccountSettingPage()
+        accountSettingPage
             .getChangePassword()
             .type('575757')
         accountSettingPage 
@@ -214,26 +214,26 @@ describe('Check validation for account settings', () => {
         accountSettingPage 
             .getPasswordSaveBtn()
             .click()
-            accountSettingPage
-                .getOldModalPassword()
-                .type('123122')
-            accountSettingPage
-                .getModalConfirmBtn()
-                .click()
-            accountSettingPage
+        accountSettingPage
+            .getOldModalPassword()
+            .type('123122')
+        accountSettingPage
+            .getModalConfirmBtn()
+            .click()
+        accountSettingPage
             .getChangePassword()
             .clear()
             .type('Ff12345678')
-            accountSettingPage 
+        accountSettingPage 
             .getPasswordSaveBtn()
             .click()
-            accountSettingPage
-                .getOldModalPassword()
-                .clear()
-                .type('Tt12345678')
-            accountSettingPage
-                .getModalConfirmBtn()
-                .click()
+        accountSettingPage
+            .getOldModalPassword()
+            .clear()
+            .type('Tt12345678')
+        accountSettingPage
+            .getModalConfirmBtn()
+            .click()
        
     })
      it('check cancel btn validation ',() => { 
@@ -261,7 +261,7 @@ describe('Check validation for account settings', () => {
         accountSettingPage
             .getCancelModalInput()
 })
-    it.only('check Recipients of Account Notices validation ',() => { 
+    it('check Recipients of Account Notices validation ',() => { 
         cy.login()
         const statusPage = new StatusPage()
         statusPage
@@ -314,5 +314,4 @@ describe('Check validation for account settings', () => {
             .getTurnOffEmailCheckbox()
             .should('not.be.checked')
         })
-        
 })
