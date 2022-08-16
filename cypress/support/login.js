@@ -1,6 +1,8 @@
 Cypress.Commands.add("login", () => {
   const email = Cypress.env("email");
   const password = Cypress.env("password");
+  cy.clearLocalStorage('loggedInUserData')
+  cy.clearLocalStorage('token')
   cy.request({
     method: "POST",
     url: "https://dev-api.priornotify.com/auth/login",
