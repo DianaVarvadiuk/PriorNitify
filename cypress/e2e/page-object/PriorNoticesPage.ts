@@ -9,7 +9,7 @@ export class PriorNoticesPage{
         return cy.get('.mb-3 ng-select .ng-select-container')
     }
     getThreeRecipient(){
-        return cy.get('ng-dropdown-panel div:nth-child(3)')
+        return cy.get('ng-dropdown-panel div:nth-child(2)')
     }
     getRecipientCompany(){
         return cy.get('.col-sm-12 li:nth-child(1) b')
@@ -40,5 +40,26 @@ export class PriorNoticesPage{
     }
     getFooter(){
         return cy.get('app-stepper-footer')
+    }
+    selectProducts(){
+        return cy.get('ng-select .ng-select-container')
+    }
+    getQuantity(){
+        return cy.get('.mt-3 td:nth-child(3) input')
+    }
+    getMeasurement(){
+        return cy.get('.mt-3 td select')
+    }
+    closeProduct(){
+        return cy.get('.btn-secondary')
+    }
+    checkProductName(){
+        return cy.get('.col-md-7 .mb-4 b')
+    }
+    checkQuantity(){
+        return cy.get('.w-50')
+    }
+    checkMeasurement(){
+        return cy.get('.w-100')
     }
 }
