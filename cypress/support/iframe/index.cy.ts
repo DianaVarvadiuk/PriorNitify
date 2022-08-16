@@ -1,3 +1,4 @@
+require('cypress-xpath');
 Cypress.Commands.add("getIframeBody", (iframeLocator: string) => {
   return cy
     .get(iframeLocator)

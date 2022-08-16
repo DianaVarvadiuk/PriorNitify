@@ -38,8 +38,8 @@ describe("Sign in page and check inputs", () => {
     //write valid email
     signup
       .getEmail("varvadiukdidi@gmail.com")
-      .getPassword("Tt12345678")
-      .getConfirmPassword("Tt12345678")
+      .getPassword("Dd12345678")
+      .getConfirmPassword("Dd12345678")
       .getCheckbox();
 
     signup.getCreateAccountBtn().click().should("be.enabled");
@@ -76,11 +76,11 @@ describe("Sign in page and check inputs", () => {
     signup.getEmail("користувач");
     cy.contains("Це поле має бути дійсною електронною адресою");
     //write password
-    signup.getPassword("Фф123456789");
+    signup.getPassword("Dd123456789");
     cy.contains(
       "Пароль має містити принаймні 8 символів, включаючи принаймні одну літеру верхнього регістру, принаймні одну літеру нижнього регістру та принаймні одну цифру."
     );
-    signup.getConfirmPassword("Фф12345678");
+    signup.getConfirmPassword("Dd12345678");
     cy.contains("Пароль не збігається");
     signup.getCheckbox();
     //check if button is disabled
@@ -88,8 +88,8 @@ describe("Sign in page and check inputs", () => {
     //write valid email
     signup
       .getEmail("користувач@gmail.com")
-      .getPassword("Ff123456789")
-      .getConfirmPassword("Ff123456789")
+      .getPassword("Dd123456789")
+      .getConfirmPassword("Dd123456789")
       .getCheckbox();
     signup.getCreateAccountBtn().click().should("be.enabled");
   });

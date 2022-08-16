@@ -6,7 +6,9 @@ describe('Create  new products', () => {
         cy.clearLocalStorage('token')
         cy.viewport(1920, 1080)
         cy.intercept('POST',/\/products/,{fixture: 'interceptPostProductsFixtures.json'}).as('PostProducts-Fixtures')
-        cy.intercept('GET','assortmentsProducts/?page=1&perPage=10',{fixture: 'interceptGetProductsPageFixtures.json'}).as('ProductsPage-Fixtures')
+        cy.intercept('GET',/\/assortmentsProducts/,{fixture: 'interceptGetProductsPageFixtures.json'}).as('ProductsPage-Fixtures')
+        cy.intercept('GET',/\/users\/current/,{fixture: 'interceptCurrentProductsFixtures.json'}).as('GetCurrent-Fixtures')
+        cy.intercept('GET', '/users?activatedOnly=true&withFdaAccountOnly=true&type=2', { fixture: 'interceptProductProducers.json'})
     })
     it('Should check validation form add products', () => {
       cy.login()
@@ -93,41 +95,36 @@ describe('Create  new products', () => {
     productsPage
         .getLastStep().should('have.class','completed')
     productsPage
-        .getRadioMerchantYes().should('not.be.checked')
+        .getRadioProducerYes()
+        .check()
+    productsPage
+        .getProducerInput()
+        .click()
+    productsPage
+        .getOptionProduct()
+        .click()
+    // productsPage
+    //     .getRadioMerchantYes().should('not.be.checked')
     productsPage
         .getRadioShipperYes().should('not.be.checked')
-    productsPage
-        .getRadioMerchantNo().should('be.checked')
+    // productsPage
+    //     .getRadioMerchantNo().should('be.checked')
     productsPage
         .getRadioShipperNo().should('be.checked')
     productsPage
         .getNextBtn()
         .should('be.enabled')
         .click()
-    productsPage 
-    .getThirthStep()
-    .should('have.class','completed')
     productsPage
-        .getCheckboxProduct()
+        .getCheckboxSold()
         .check()
+        productsPage
+        .getNextBtn()
+        .should('be.enabled')
+        .click()
     productsPage
-        .getInputProductPackaging()
-        .should('be.disabled')
-    productsPage
-        .getPoundsRadioBtn() 
-        .should('be.disabled')
-    productsPage
-        .getOuncesRadioBtn()
-        .should('be.disabled')
-    productsPage
-        .getGramsRadioBtn()
-        .should('be.disabled')    
-    productsPage
-        .getKilogramsRadioBtn()
-        .should('be.disabled')
-    productsPage
-        .getLitersRadioBtn()
-        .should('be.disabled')
+        .selectProducer()
+        .check()
     productsPage
         .getSubmitBtn()
         .click()

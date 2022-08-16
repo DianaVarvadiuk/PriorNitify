@@ -53,6 +53,21 @@ export class ProductsPage{
     getLastStep(){
         return cy.get('.modal.show app-stepper-header li:nth-child(1)')
     }
+    getRadioProducerYes(){
+       return cy.get('#radioProducerYes')
+    }
+    getProducerInput(){
+        return cy.get('.ng-input input')
+    }
+    getOptionProduct(){
+        return cy.get('.ng-option-label')
+    }
+    getCheckboxSold(){
+        return cy.get('input.checkbox-sold')
+    }
+    selectProducer(){
+        return cy.get('#prod-1')
+    }
     getRadioMerchantYes(){
         return cy.get('#radioMerchantYes')
     }
