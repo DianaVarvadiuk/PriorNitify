@@ -3,8 +3,6 @@ import { StatusPage } from "./page-object/StatusPage";
 
 describe("Status page", () => {
   beforeEach(() => {
-    cy.clearLocalStorage("loggedInUserData");
-    cy.clearLocalStorage("token");
     loadInterceptsDefaults();
     cy.viewport(1920, 1080);
   });

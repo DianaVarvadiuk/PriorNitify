@@ -2,15 +2,14 @@ import {StatusPage} from './page-object/StatusPage'
 import {MerchantsPage} from './page-object/MerchantsPage'
 import {ShippersPage} from './page-object/ShippersPage'
 import {UsersTypeModal} from './page-object/UsersTypeModal'
+import {usersDefaults,usersType,currentDefaults,deleteShippers} from './pages/shippers/_defaults'
 describe('Create  new shippers', () => {
     beforeEach(()=>{
-        cy.clearLocalStorage('loggedInUserData')
-        cy.clearLocalStorage('token')
         cy.viewport(1920, 1080)
-        cy.intercept('POST',/\/users/,{fixture:'interceptShippersUsersFixtures.json'}).as('PostUsers-Fixtures')
-        cy.intercept('GET','/users?page=1&perPage=10&type=3',{fixture:'interceptShippersUsersTypeFixtures.json'}).as('GetUsersType-Fixtures') 
-        cy.intercept('GET',/\/users\/current/,{fixture: 'interceptShippersCurrentFixtures.json'}).as('GetCurrent-Fixtures')  
-        cy.intercept('DELETE','/users/8567',{fixture:'interceptUsersDeleteFixtures.json'}).as('DeleteUsers-Fixtures')  
+        usersDefaults()
+        usersType()
+        currentDefaults()
+        deleteShippers()
     })
     it('Should check validation form add shippers', () => {
         cy.login()

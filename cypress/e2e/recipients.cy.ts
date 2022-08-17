@@ -1,17 +1,16 @@
 import {StatusPage} from './page-object/StatusPage'
 import {RecipientDashboardPage} from './page-object/RecipientDashboardPage'
 import {RecipientsPage} from './page-object/RecipientsPage'
+import {currentDefaults,allRecipients,editRecipients,recipientsPage,changeRecipients,deleteRecipients} from './pages/recipients/_defaults.js'
 describe('Create  new recipient', () => {
     beforeEach(()=>{
-        cy.clearLocalStorage('loggedInUserData')
-        cy.clearLocalStorage('token')
-        cy.intercept('GET',/\/users\/current/,{fixture: 'interceptCurrentRecipientsFixtures.json'}).as('GetCurrent-Fixtures')
-        cy.intercept('POST',/\/recipients/, { fixture: 'interceptRecipientsFixtures.json' }).as('PostRecipients-Fixtures')
-        cy.intercept('GET',/\/recipients\/[\w]{1,}/,{fixture: 'interceptRecipientsEditFixtures.json'}).as('GetRecipientsEdit-Fixtures')
-        cy.intercept('GET','/recipients?page=1&perPage=10',{fixture: 'interceptRecipientsPageFixtures.json'}).as('GetRecipientsPage-Fixtures')
-        cy.intercept('PUT',/\/recipients\/[\w]{1,}/,{fixture: 'interceptRecipientsPutFixtures.json'}).as('PutRecipientsEdit-Fixtures')
-        cy.intercept('DELETE',/\/recipients\/[\w]{1,}/,{fixture: 'interceptRecipientsDeleteFixtures.json'}).as('DeleteRecipientsEdit-Fixtures')
         cy.viewport(1920, 1080)
+        currentDefaults()
+        allRecipients()
+        editRecipients()
+        recipientsPage()
+        changeRecipients()
+        deleteRecipients()
      })
   it('Should check validation form add recipient', () => {
     cy.login()

@@ -3,8 +3,6 @@ import { SubscribePage } from "./page-object/SubscribePage";
 import { SubscribeBusinessPage } from "./page-object/SubscribeBusinessPage";
 describe("Subcribe page", () => {
   beforeEach(() => {
-    cy.clearLocalStorage("loggedInUserData");
-    cy.clearLocalStorage("token");
     loadInterceptsDefaults();
   });
 

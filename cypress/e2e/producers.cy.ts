@@ -2,11 +2,12 @@ import {StatusPage} from './page-object/StatusPage'
 import {UsersTypeModal} from './page-object/UsersTypeModal'
 import {ProducersPage} from './page-object/ProducersPage'
 import {MerchantsPage} from './page-object/MerchantsPage'
+import {currentDefaults,typeProducers,usersDefaults} from './pages/producers/_defaults'
 describe('Check validation for producers', () => {
     beforeEach(()=>{
-        cy.intercept('GET',/\/users\/current/,{fixture: 'interceptCurrentProducersFixtures.json'})
-        cy.intercept('GET','users?page=1&perPage=10&type=2',{fixture: 'interceptUsersTypeProducersFixtures.json'})
-        cy.intercept('POST',/\/users/,{fixture: 'interceptUsersProducersFixtures.json'})
+        currentDefaults() 
+        typeProducers()
+        usersDefaults()
         cy.viewport(1320, 1000)
     })
     it('check basic validation producers page',() => {
