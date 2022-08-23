@@ -1,6 +1,6 @@
-import {StatusPage} from './page-object/StatusPage'
-import {PriorNoticesPage} from './page-object/PriorNoticesPage'
-import {currentDefaults,allRecipients,allProducts}  from './pages/priop-notices/_defaults'
+import {StatusPage} from '../../page-object/StatusPage'
+import {PriorNoticesPage} from '../../page-object/PriorNoticesPage'
+import {currentDefaults,allRecipients,allProducts}  from './_defaults'
 describe('Check validation for account settings', () => {
     beforeEach(()=>{
         currentDefaults()

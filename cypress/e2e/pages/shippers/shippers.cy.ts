@@ -1,8 +1,8 @@
-import {StatusPage} from './page-object/StatusPage'
-import {MerchantsPage} from './page-object/MerchantsPage'
-import {ShippersPage} from './page-object/ShippersPage'
-import {UsersTypeModal} from './page-object/UsersTypeModal'
-import {usersDefaults,usersType,currentDefaults,deleteShippers} from './pages/shippers/_defaults'
+import {StatusPage} from '../../page-object/StatusPage'
+import {MerchantsPage} from '../../page-object/MerchantsPage'
+import {ShippersPage} from '../../page-object/ShippersPage'
+import {UsersTypeModal} from '../../page-object/UsersTypeModal'
+import {usersDefaults,usersType,currentDefaults,deleteShippers} from './_defaults'
 describe('Create  new shippers', () => {
     beforeEach(()=>{
         cy.viewport(1920, 1080)

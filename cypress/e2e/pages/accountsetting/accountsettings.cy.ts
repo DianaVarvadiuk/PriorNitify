@@ -1,7 +1,7 @@
-import {StatusPage} from './page-object/StatusPage'
-import {MerchantsPage} from './page-object/MerchantsPage'
-import {AccountSettingPage} from './page-object/AccountSettingPage'
-import {currentDefaults,defaultSettings,changePassword,noticeEmails} from './pages/accountsetting/_defaults'
+import {StatusPage} from '../../page-object/StatusPage'
+import {MerchantsPage} from '../../page-object/MerchantsPage'
+import {AccountSettingPage} from '../../page-object/AccountSettingPage'
+import {currentDefaults,defaultSettings,changePassword,noticeEmails} from './_defaults'
 describe('Check validation for account settings', () => {
     beforeEach(()=>{
         currentDefaults()

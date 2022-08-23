@@ -1,7 +1,7 @@
-import {StatusPage} from './page-object/StatusPage'
-import {RecipientDashboardPage} from './page-object/RecipientDashboardPage'
-import {RecipientsPage} from './page-object/RecipientsPage'
-import {currentDefaults,allRecipients,editRecipients,recipientsPage,changeRecipients,deleteRecipients} from './pages/recipients/_defaults.js'
+import {StatusPage} from '../../page-object/StatusPage'
+import {RecipientDashboardPage} from '../../page-object/RecipientDashboardPage'
+import {RecipientsPage} from '../../page-object/RecipientsPage'
+import {currentDefaults,allRecipients,editRecipients,recipientsPage,changeRecipients,deleteRecipients} from './_defaults.js'
 describe('Create  new recipient', () => {
     beforeEach(()=>{
         cy.viewport(1920, 1080)

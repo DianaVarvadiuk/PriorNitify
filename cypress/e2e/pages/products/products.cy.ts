@@ -1,6 +1,6 @@
-import {StatusPage} from './page-object/StatusPage'
-import {ProductsPage} from './page-object/ProductsPage'
-import {allProducts,assortmentsProducts,currentDefaults,productProducers} from './pages/products/_defaults'
+import {StatusPage} from '../../page-object/StatusPage'
+import {ProductsPage} from '../../page-object/ProductsPage'
+import {allProducts,assortmentsProducts,currentDefaults,productProducers} from './_defaults'
 describe('Create  new products', () => {
     beforeEach(()=>{
         cy.viewport(1920, 1080)

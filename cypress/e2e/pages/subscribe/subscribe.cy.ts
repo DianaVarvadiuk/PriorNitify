@@ -1,9 +1,15 @@
-import { loadInterceptsDefaults } from "./intercept/group_interceps/_defaults";
-import { SubscribePage } from "./page-object/SubscribePage";
-import { SubscribeBusinessPage } from "./page-object/SubscribeBusinessPage";
+import{currentDefaults,authActivate,typeDefaults,subscribeDefaults,currentSubscription,paymentInfo,statisticDefaults} from '../../intercept/group_interceps/_defaults'
+import { SubscribePage } from "../../page-object/SubscribePage";
+import { SubscribeBusinessPage } from "../../page-object/SubscribeBusinessPage";
 describe("Subcribe page", () => {
   beforeEach(() => {
-    loadInterceptsDefaults();
+    currentDefaults()
+    authActivate()
+    typeDefaults()
+    subscribeDefaults()
+    currentSubscription()
+    paymentInfo()
+    statisticDefaults()
   });
 
   it("Should check data subscribe page and subscribe business page ", () => {
@@ -14,8 +20,8 @@ describe("Subcribe page", () => {
     subscribepage
       .getPriorNoticeText()
       .should("have.text", "per Prior Notice after first 7 days");
-    subscribepage.getSubscribeBtn().should("be.enabled").click();
-    cy.url().should("include", "?step=1");
+    subscribepage.getSubmitBtn().should("be.enabled").click();
+   
     subscribepage.getSubscribeFormBtn().should("be.disabled");
     //write invalid company
     subscribepage.getCompanyName("it");
@@ -64,6 +70,7 @@ describe("Subcribe page", () => {
         "Last Name required, at least 1 and no more than 50 characters"
       );
     subscribepage.getSubscribeFormBtn().should("be.disabled");
+     cy.url().should("include", "?step=1");
     //write valid dates
     subscribepage.getFirstName("Valentyn");
     subscribepage.getLastName("Marynchyk");

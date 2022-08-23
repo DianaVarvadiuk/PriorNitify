@@ -1,7 +1,7 @@
-import {StatusPage} from './page-object/StatusPage'
-import {MerchantsPage} from './page-object/MerchantsPage'
-import {UsersTypeModal} from './page-object/UsersTypeModal'
-import {changeCard,usersDefaults,usersType,deleteShippers} from './pages/merchants/_defaults'
+import {StatusPage} from '../../page-object/StatusPage'
+import {MerchantsPage} from '../../page-object/MerchantsPage'
+import {UsersTypeModal} from '../../page-object/UsersTypeModal'
+import {changeCard,usersDefaults,usersType,deleteShippers} from './_defaults'
 describe('Create  new merchants', () => {
     beforeEach(()=>{
         cy.viewport(1920, 1080)

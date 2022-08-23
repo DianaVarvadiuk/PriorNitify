@@ -1,8 +1,8 @@
-import {StatusPage} from './page-object/StatusPage'
-import {UsersTypeModal} from './page-object/UsersTypeModal'
-import {ProducersPage} from './page-object/ProducersPage'
-import {MerchantsPage} from './page-object/MerchantsPage'
-import {currentDefaults,typeProducers,usersDefaults} from './pages/producers/_defaults'
+import {StatusPage} from '../../page-object/StatusPage'
+import {UsersTypeModal} from '../../page-object/UsersTypeModal'
+import {ProducersPage} from '../../page-object/ProducersPage'
+import {MerchantsPage} from '../../page-object/MerchantsPage'
+import {currentDefaults,typeProducers,usersDefaults} from './_defaults'
 describe('Check validation for producers', () => {
     beforeEach(()=>{
         currentDefaults() 

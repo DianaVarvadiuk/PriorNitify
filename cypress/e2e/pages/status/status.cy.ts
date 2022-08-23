@@ -1,9 +1,13 @@
-import { loadInterceptsDefaults } from "./intercept/group_interceps/_defaults";
-import { StatusPage } from "./page-object/StatusPage";
 
+import { fromCallback } from "cypress/types/bluebird";
+import { StatusPage } from "../../page-object/StatusPage";
+import{currentDefaults,currentSubscription,paymentInfo,statisticDefaults} from '../../intercept/group_interceps/_defaults'
 describe("Status page", () => {
   beforeEach(() => {
-    loadInterceptsDefaults();
+    currentDefaults()
+    currentSubscription()
+    paymentInfo()
+    statisticDefaults()
     cy.viewport(1920, 1080);
   });
   it("Should check validation form", () => {
@@ -79,7 +83,7 @@ describe("Status page", () => {
     .click()
   cy.wait(1000)
   statusPage
-  .getCurrentPassword('Tt12345678')
+  .getCurrentPassword('Dd12345678')
   //statusPage.getClickHere().should('include','https://www.access.fda.gov/oaa/createNewAccountflow.htm?execution=e1s1')
   statusPage
     .getConfirmBtn()
