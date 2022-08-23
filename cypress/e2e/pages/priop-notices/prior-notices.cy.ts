@@ -1,15 +1,11 @@
-import {StatusPage} from './page-object/StatusPage'
-import {PriorNoticesPage} from './page-object/PriorNoticesPage'
-import {UsersTypeModal} from './page-object/UsersTypeModal'
-import { should } from 'chai'
+import {StatusPage} from '../../page-object/StatusPage'
+import {PriorNoticesPage} from '../../page-object/PriorNoticesPage'
+import {currentDefaults,allRecipients,allProducts}  from './_defaults'
 describe('Check validation for account settings', () => {
     beforeEach(()=>{
-        cy.intercept('GET',/\/users\/current/,{fixture: 'interceptCurrentAccountFixtures.json'}).as('GetCurrent-Fixtures')
-        cy.intercept('POST',/\/recipients/, { fixture: 'interceptRecipientsFixtures.json' }).as('PostRecipients-Fixtures')
-        cy.intercept('POST',/\/products/,{fixture: 'interceptPostProductsFixtures.json'}).as('PostProducts-Fixtures')
-        // cy.intercept('POST',/\/users/,{fixture: 'interceptUsersProducersFixtures.json'})
-        // cy.intercept('POST',/\/products/,{fixture: 'interceptPostProductsFixtures.json'}).as('PostProducts-Fixtures')
-        //cy.intercept('GET','users?page=1&perPage=10&type=2',{fixture: 'interceptUsersTypeProducersFixtures.json'})
+        currentDefaults()
+        allRecipients()
+        allProducts()
     })
     it('check basic validation Prior Notices page',() => {
         cy.login()

@@ -76,11 +76,8 @@ describe("Sign in page and check inputs", () => {
     signup.getEmail("користувач");
     cy.contains("Це поле має бути дійсною електронною адресою");
     //write password
-    signup.getPassword("Dd123456789");
-    cy.contains(
-      "Пароль має містити принаймні 8 символів, включаючи принаймні одну літеру верхнього регістру, принаймні одну літеру нижнього регістру та принаймні одну цифру."
-    );
-    signup.getConfirmPassword("Dd12345678");
+    signup.getPassword("Dd12345678");
+    signup.getConfirmPassword("Dd123456789");
     cy.contains("Пароль не збігається");
     signup.getCheckbox();
     //check if button is disabled

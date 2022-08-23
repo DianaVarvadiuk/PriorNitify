@@ -1,16 +1,14 @@
-import {StatusPage} from './page-object/StatusPage'
-import {MerchantsPage} from './page-object/MerchantsPage'
-import {UsersTypeModal} from './page-object/UsersTypeModal'
+import {StatusPage} from '../../page-object/StatusPage'
+import {MerchantsPage} from '../../page-object/MerchantsPage'
+import {UsersTypeModal} from '../../page-object/UsersTypeModal'
+import {changeCard,usersDefaults,usersType,deleteShippers} from './_defaults'
 describe('Create  new merchants', () => {
     beforeEach(()=>{
-        cy.clearLocalStorage('loggedInUserData')
-        cy.clearLocalStorage('token')
         cy.viewport(1920, 1080)
-       cy.intercept('POST',/\/users\/change-card/,{fixture: 'interceptChangeCardFixtures.json'}).as('PostCard-Fixtures')
-       cy.intercept('POST',/\/users/,{fixture:'interceptUsersFixtures.json'}).as('PostUsers-Fixtures')
-       cy.intercept('GET','/users?page=1&perPage=10&type=1',{fixture:'interceptUsersTypeFixtures.json'}).as('GetUsersType-Fixtures')
-       cy.intercept('DELETE','/users/8569',{fixture:'interceptUsersShippersDeleteFixtures.json'}).as('DeleteShippersDeleteUsers-Fixtures')
-         
+       changeCard()
+       usersDefaults()
+       usersType()
+       deleteShippers()
     })
     it('Should check validation form add merchants', () => {
         cy.login()

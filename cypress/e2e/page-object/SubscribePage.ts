@@ -3,13 +3,13 @@ export class SubscribePage {
     cy.visit("/activate?key=2c4e986449b4aaed03105f9c4c2f01626471d26f");
   }
   getPrice() {
-    return cy.get(".planItem-top .value");
+    return cy.get(".subscription-plan .planItem-price div:nth-child(1).value").first()
   }
   getPriorNoticeText() {
-    return cy.get(".planItem-top div:nth-child(4)");
+    return cy.get(".planItem-top div:nth-child(4)").first()
   }
-  getSubscribeBtn() {
-    return cy.get(" button.subcribe");
+  getSubmitBtn() {
+    return cy.get(".subscription-plan div>div .submit-section button:nth-of-type(1)").first()
   }
   getSubscribeFormBtn() {
     return cy.get(".btn-primary");

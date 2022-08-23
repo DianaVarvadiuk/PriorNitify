@@ -1,14 +1,13 @@
-import {StatusPage} from './page-object/StatusPage'
-import {MerchantsPage} from './page-object/MerchantsPage'
-import {AccountSettingPage} from './page-object/AccountSettingPage'
+import {StatusPage} from '../../page-object/StatusPage'
+import {MerchantsPage} from '../../page-object/MerchantsPage'
+import {AccountSettingPage} from '../../page-object/AccountSettingPage'
+import {currentDefaults,defaultSettings,changePassword,noticeEmails} from './_defaults'
 describe('Check validation for account settings', () => {
     beforeEach(()=>{
-        cy.clearLocalStorage('loggedInUserData')
-        cy.clearLocalStorage('token')
-        cy.intercept('GET',/\/users\/current/,{fixture: 'interceptCurrentAccountFixtures.json'}).as('GetCurrent-Fixtures')
-        cy.intercept('GET',/\/users\/me\/settings/,{fixture: 'interceptSettingsAccountFixtures.json'}).as('GetSettings-Fixtures')
-        cy.intercept('POST',/\/users\/change-password/,{fixture: 'interceptPostPasswordFixtures.json'}).as('PostPassword-Fixtures')
-        cy.intercept('POST',/\/users\/set-notice-emails/,{fixture: 'interceptNoticeEmailsFixtures.json'}).as('PostNoticeEmails-Fixtures')
+        currentDefaults()
+        defaultSettings()
+        changePassword()
+        noticeEmails()
     })
 
     it('check basic validation for email,phone,password,Recipients of Account Notices',() => {
@@ -24,7 +23,7 @@ describe('Check validation for account settings', () => {
         const accountSettingPage = new AccountSettingPage()
         accountSettingPage
             .getChangeEmail()
-            .should('have.value','varvadiukdidi@gmail.com')
+            .should('have.value','varvadiukdidi+2@gmail.com')
         accountSettingPage
             .getChangePhone()
             .should('have.value','+380978654896')
@@ -36,7 +35,7 @@ describe('Check validation for account settings', () => {
             .should('be.visible')
         accountSettingPage
             .getDefaultEmail()
-            .should('have.text',' varvadiukdidi@gmail.com ')
+            .should('have.text',' varvadiukdidi+2@gmail.com ')
     })
     it('check coupon code  validation ',() => {
         cy.login()
@@ -76,7 +75,7 @@ describe('Check validation for account settings', () => {
         accountSettingPage
         accountSettingPage
         .getChangeEmail()
-        .should('have.value','varvadiukdidi@gmail.com')
+        .should('have.value','varvadiukdidi+2@gmail.com')
         accountSettingPage
             .getEmailSaveBtn()
             .click()
@@ -120,7 +119,7 @@ describe('Check validation for account settings', () => {
         accountSettingPage
             .getChangeEmail()
             .clear()
-            .type('varvadiukdidi@gmail.com')
+            .type('varvadiukdidi+2@gmail.com')
         accountSettingPage
             .getEmailSaveBtn()
             .click()
@@ -129,7 +128,7 @@ describe('Check validation for account settings', () => {
             .click()
         accountSettingPage
             .getOldPassword()
-            .type('Tt12345678')
+            .type('Dd12345678')
         accountSettingPage
             .getModalConfirmBtn()
             .click()
@@ -223,7 +222,7 @@ describe('Check validation for account settings', () => {
         accountSettingPage
             .getChangePassword()
             .clear()
-            .type('Ff12345678')
+            .type('Dd12345678')
         accountSettingPage 
             .getPasswordSaveBtn()
             .click()
@@ -261,7 +260,7 @@ describe('Check validation for account settings', () => {
         accountSettingPage
             .getCancelModalInput()
 })
-    it.only('check Recipients of Account Notices validation ',() => { 
+    it('check Recipients of Account Notices validation ',() => { 
         cy.login()
         const statusPage = new StatusPage()
         statusPage

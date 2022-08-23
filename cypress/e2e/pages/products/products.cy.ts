@@ -1,14 +1,13 @@
-import {StatusPage} from './page-object/StatusPage'
-import {ProductsPage} from './page-object/ProductsPage'
+import {StatusPage} from '../../page-object/StatusPage'
+import {ProductsPage} from '../../page-object/ProductsPage'
+import {allProducts,assortmentsProducts,currentDefaults,productProducers} from './_defaults'
 describe('Create  new products', () => {
     beforeEach(()=>{
-        cy.clearLocalStorage('loggedInUserData')
-        cy.clearLocalStorage('token')
         cy.viewport(1920, 1080)
-        cy.intercept('POST',/\/products/,{fixture: 'interceptPostProductsFixtures.json'}).as('PostProducts-Fixtures')
-        cy.intercept('GET',/\/assortmentsProducts/,{fixture: 'interceptGetProductsPageFixtures.json'}).as('ProductsPage-Fixtures')
-        cy.intercept('GET',/\/users\/current/,{fixture: 'interceptCurrentProductsFixtures.json'}).as('GetCurrent-Fixtures')
-        cy.intercept('GET', '/users?activatedOnly=true&withFdaAccountOnly=true&type=2', { fixture: 'interceptProductProducers.json'})
+        allProducts()
+        assortmentsProducts()
+        currentDefaults()
+        productProducers()
     })
     it('Should check validation form add products', () => {
       cy.login()
